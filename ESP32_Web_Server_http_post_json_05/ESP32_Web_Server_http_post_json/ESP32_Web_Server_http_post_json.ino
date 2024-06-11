@@ -222,11 +222,8 @@ void printCurrentNet()
 /* Timer Initialize */
 void Timer_init()
 {
-    /* Timer channel 1 Set */
     timer = timerBegin(1, 80, true);
     timerAttachInterrupt(timer, &onTimer1, true);
-    
-    /* Timer 1us x 1000 count = 1 msec */
     timerAlarmWrite(timer, 1000, true);
     timerAlarmEnable(timer);
 }
