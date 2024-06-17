@@ -6,8 +6,18 @@
 extern "C" {
 #endif
 
+#define PACKET_HEADER_LENGTH                3
+#define PACKET_BODY_LENGTH                  (4 * 3) + (30 * 2)
+#define PACKET_FOOTER_LENGTH                2
 
 #define PACKET_ARRAY_DEFAULT                0
+#define PACKET_HEADER_START                 PACKET_ARRAY_DEFAULT
+#define PACKET_HEADER_END                   PACKET_HEADER_LENGTH - 1
+#define PACKET_BODY_START                   PACKET_HEADER_LENGTH
+#define PACKET_BODY_END                     PACKET_BODY_START + PACKET_BODY_LENGTH
+#define PACKET_FOOTER_START                 PACKET_BODY_END + PACKET_FOOTER_LENGTH
+#define PACKET_FOOTER_END                   
+
 
 #define PT_DATA_MAX                         8   // 4 x 2 byte.
 #define SHTM_DATA_MAX                       16  // 8 x 2 byte.
@@ -198,6 +208,34 @@ typedef struct
         uint8_t data[ SOCKET_SEND_REPORT_PACKET_LENGTH ]; // length 수정 필요함
     };
 } SocketSendReportPacket_t;
+
+typedef struct
+{
+    uint8_t parse_cmd_id;                         /**< Command ID */
+    uint8_t parse_data_length;                    /**< Data length */
+
+     /*** body ***/
+    /* device info */
+    /* MCU Unique ID */
+    uint8_t parse_unique_id[ 12 ];                 /**< Unique ID 12 byte [ MSB | LSB ] */ 
+
+    uint8_t parse_setboard_type[ 2 ];                 /**< current battery level */
+    uint8_t parse_setboard_id[ 2 ];                   /**< Set Board id _ Master _ Slave_n */
+    
+    /* Sensor type */
+    uint8_t parse_sensor_type_1[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
+    uint8_t parse_sensor_type_2[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
+
+    /* sensor bd info */
+    uint8_t parse_sensor_id[ 2 ];
+    uint8_t parse_sensor_state[ 2 ];
+
+    /* sensor value */
+    uint8_t parse_ptpress[ PT_DATA_MAX ];
+    uint8_t parse_pttemperature[ PT_DATA_MAX ];
+    uint8_t parse_shtmtemperature[ SHTM_DATA_MAX ];
+    uint8_t parse_shtmhumi[ SHTM_DATA_MAX ];
+} ParsingDataType_t;
 
 #else
 typedef struct

@@ -260,14 +260,14 @@ void Timer_init()
 
 ret_code_t MakeMainPacket (void)
 {
-   
-    for (uint8_t i = 0; i > SOCKET_SEND_REPORT_PACKET_LENGTH; i++)
-    {
-        makePacket.data[ i ] = uart_buf_tmp[ i ];
-    }
-    
-    //Serial.println(makePacket.data);
+
+    makePacket.stx[ i ] = ascii2hex_arr[ i++ ];
+    makePacket.cmd_id = ascii2hex_arr[ i++ ];
+
+       //Serial.println(makePacket.data);
 }
+
+ret_code_t parse_MainboardPacket ( uint8_t * pData, uint8_t )
 
 void setup() {
 
@@ -496,7 +496,6 @@ void Debug_Process (void)
         Serial.printf("Test Temperature : %04X\r\n", tmp_temperature); // Test print.
         Temperature_Converter(tmp_temperature); // Test print.
         
-
         //Serial.println(uart_buf_tmp);
 
         strupr(uart_buf_tmp);
