@@ -6,11 +6,14 @@
 extern "C" {
 #endif
 
-#define PT_DATA_MAX                         4
-#define SHTM_DATA_MAX                       8
+
+#define PACKET_ARRAY_DEFAULT                0
+
+#define PT_DATA_MAX                         8   // 4 x 2 byte.
+#define SHTM_DATA_MAX                       16  // 8 x 2 byte.
 
 #define SENSOR_STATE_MAX                    8
-#define SOCKET_SEND_REPORT_PACKET_LENGTH    78  // server로 던질 데이터 길이에 맞게 수정 필요함.
+#define SOCKET_SEND_REPORT_PACKET_LENGTH    156  // Server로 던질 데이터 길이에 맞게 수정 필요함.
 
 /* Socket packet stx, ext */
 #define PACKET_DATA_STX                     0xFF
@@ -169,32 +172,28 @@ typedef struct
             /*** body ***/
             /* device info */
             /* MCU Unique ID */
-            uint16_t unique_id_9to12_l;                 /**< Unique ID LSB */
-            uint16_t unique_id_9to12_m;                 /**< Unique ID MSB */
-            uint16_t unique_id_5to12_l;                 /**< Unique ID LSB */
-            uint16_t unique_id_5to12_m;                 /**< Unique ID MSB */
-            uint16_t unique_id_1to4_l;                  /**< Unique ID LSB */
-            uint16_t unique_id_1to4_m;                  /**< Unique ID MSB */
+            uint8_t unique_id[ 12 ];                 /**< Unique ID 12 byte [ MSB | LSB ] */ 
 
-            uint16_t setboard_type;                 /**< current battery level */
-            uint16_t setboard_id;                   /**< Set Board id _ Master _ Slave_n */
+            uint8_t setboard_type[ 2 ];                 /**< current battery level */
+            uint8_t setboard_id[ 2 ];                   /**< Set Board id _ Master _ Slave_n */
             
             /* Sensor type */
-            uint16_t sensor_type_1;                 /**< Sensor Type id [ MSB | LSB ] */
-            uint16_t sensor_type_2;                 /**< Sensor Type id [ MSB | LSB ] */
+            uint8_t sensor_type_1[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
+            uint8_t sensor_type_2[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
 
             /* sensor bd info */
-            uint16_t sensor_id;
-            uint16_t sensor_state[ SENSOR_STATE_MAX ];
+            uint8_t sensor_id[ 2 ];
+            uint8_t sensor_state[ 2 ];
 
             /* sensor value */
-            int16_t pt_press[ PT_DATA_MAX ];
-            int16_t pt_temperature[ PT_DATA_MAX ];
-            int16_t shtm_temperature[ SHTM_DATA_MAX ];
-            int16_t shtm_humi[ SHTM_DATA_MAX ];
+            uint8_t pt_press[ PT_DATA_MAX ];
+            uint8_t pt_temperature[ PT_DATA_MAX ];
+            uint8_t shtm_temperature[ SHTM_DATA_MAX ];
+            uint8_t shtm_humi[ SHTM_DATA_MAX ];
             
             /*** footer ***/
-            uint8_t etx;                                  /**< ETX (End of Text) */
+            uint8_t crc16[ 2 ]; 
+            uint8_t etx[ 2 ];                                  /**< ETX (End of Text) */
         } packet;
         uint8_t data[ SOCKET_SEND_REPORT_PACKET_LENGTH ]; // length 수정 필요함
     };

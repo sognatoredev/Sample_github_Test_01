@@ -5,6 +5,7 @@
 #include <string.h>
 #include <SPI.h>
 #include "data_type.h"
+#include <stdint.h>
 
 #ifndef DEBUG
 #define DEBUG
@@ -14,7 +15,11 @@
 
 #define CONNECT_TIMEOUT 5 // sec
 
+#define UART_BUF_MAX    256
+
 typedef uint32_t ret_code_t;
+
+SocketSendReportPacket_t makePacket;
 
 /* create a hardware timer */
 hw_timer_t * timer = NULL;
@@ -25,6 +30,10 @@ uint8_t MakePacketData = 0x00;
 String httpRequestData;
 
 String uart_buf;
+char uart_buf_tmp[UART_BUF_MAX] = {0};
+uint8_t uart_buf_cnt = 0;
+
+uint8_t ascii2hex_arr[UART_BUF_MAX] = { 0 };
 
 const char* ssid = "scs_tms";// "sw_epc";
 const char* password = "scstms0903";
@@ -85,6 +94,24 @@ void IRAM_ATTR onTimer1()
     timer1_count2++;
     
     portEXIT_CRITICAL_ISR(&timerMux);
+}
+
+//입력의 str은 모두 대문자인 16진수 변환가능한 문자열이라고 가정
+//size는 str의 크기
+//hex는 변환된 16진수 배열
+unsigned int ascii_to_hex(const char* str, size_t size, uint8_t* hex)
+{
+    unsigned int i, h, high, low;
+    for (h = 0, i = 0; i < size; i += 2, ++h) {
+        //9보다 큰 경우 : 알파벳 문자 'A' 이상인 문자로, 'A'를 빼고 10을 더함.
+        //9이하인 경우 : 숫자 입력으로 '0'을 빼면 실제 값이 구해짐.
+        high = (str[i] > '9') ? str[i] - 'A' + 10 : str[i] - '0';
+        low = (str[i + 1] > '9') ? str[i + 1] - 'A' + 10 : str[i + 1] - '0';
+        //high 4비트, low 4비트이므로, 1바이트를 만들어주기 위해 high를 왼쪽으로 4비트 shift
+        //이후 OR(|)연산으로 합
+        hex[h] = (high << 4) | low;
+    }
+    return h;
 }
 
 /* Display Boot Message */
@@ -233,7 +260,13 @@ void Timer_init()
 
 ret_code_t MakeMainPacket (void)
 {
-
+   
+    for (uint8_t i = 0; i > SOCKET_SEND_REPORT_PACKET_LENGTH; i++)
+    {
+        makePacket.data[ i ] = uart_buf_tmp[ i ];
+    }
+    
+    //Serial.println(makePacket.data);
 }
 
 void setup() {
@@ -422,14 +455,81 @@ void WiFi_Process (void)
     }
 }
 
+/* Test __ Temperature Converter 2byte signaed int. */
+float Temperature_Converter (uint16_t temperatureValue)
+{
+    uint8_t symbol = 0;
+    uint16_t Value = 0;
+
+    float fValue = 0.0;
+    
+    if(0x8000 & temperatureValue)
+    {
+        symbol = '-';
+        Value = temperatureValue - 0x8000;
+    }
+    else
+    {
+        symbol = '+';
+        Value = temperatureValue;
+    }
+
+    fValue = (float) Value;
+    Serial.printf("Test Converter Temperature : %c%d.%d\r\n", symbol, Value / 10, Value % 10);
+    
+    return fValue;
+}
+
 void Debug_Process (void)
 {
+    uint8_t i = 0;
+    uint16_t tmp_temperature = 0x80cd;    // Test variable      0x80cd = -20.5     0x00cd = +20.5 
     // // Serial.printf("Timer 1 Count Value : %d\r\n", timer1_count);
+    #if 1
     if(Serial.available() > 0)
     {
         uart_buf = Serial.readStringUntil('\n');
-        Serial.println(uart_buf);
+        uart_buf_cnt = uart_buf.length();
+
+        uart_buf.toCharArray(uart_buf_tmp, uart_buf_cnt + 2);
+        Serial.printf("Uart Buffer Length Count Value : %d\r\n", uart_buf_cnt);
+        Serial.printf("Test Temperature : %04X\r\n", tmp_temperature); // Test print.
+        Temperature_Converter(tmp_temperature); // Test print.
+        
+
+        //Serial.println(uart_buf_tmp);
+
+        strupr(uart_buf_tmp);
+        ascii_to_hex(uart_buf_tmp, uart_buf_cnt, ascii2hex_arr);
+        //Serial.println(ascii2hex_arr);
+        for (i = 0; i < (uart_buf_cnt / 2); i++)
+        {
+            Serial.printf("%02X", ascii2hex_arr[i]);
+        }
     }
+    #else
+    if(Serial.available() > 0)
+    {
+        char str[128] = "CAFEcafe0102";
+        size_t size = strlen(str);
+        uint8_t hex2[128] = { 0, };
+        //Serial.println(uart_buf_tmp);
+        uart_buf = Serial.readStringUntil('\n');
+
+
+
+        strupr(str);
+
+        ascii_to_hex(str, size, hex2);
+        //Serial.println(ascii2hex_arr);
+        for (i = 0; i < (size / 2); i++)
+        {
+            Serial.printf("%02X\n", hex2[i]);
+        }
+        
+    }
+    #endif
+    //MakeMainPacket();
 }
 
 void loop() {
