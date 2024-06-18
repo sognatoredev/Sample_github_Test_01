@@ -5,21 +5,15 @@
 #include <string.h>
 #include <SPI.h>
 #include "data_type.h"
-#include <stdint.h>
+
 
 #ifndef DEBUG
 #define DEBUG
 #endif
 
-#define LED_BLUE  2
-
-#define CONNECT_TIMEOUT 5 // sec
-
-#define UART_BUF_MAX    256
-
-typedef uint32_t ret_code_t;
 
 SocketSendReportPacket_t makePacket;
+ParsingDataType_t parsePacketData;
 
 /* create a hardware timer */
 hw_timer_t * timer = NULL;
@@ -101,6 +95,7 @@ void IRAM_ATTR onTimer1()
 //hex는 변환된 16진수 배열
 unsigned int ascii_to_hex(const char* str, size_t size, uint8_t* hex)
 {
+    #if 0
     unsigned int i, h, high, low;
     for (h = 0, i = 0; i < size; i += 2, ++h) {
         //9보다 큰 경우 : 알파벳 문자 'A' 이상인 문자로, 'A'를 빼고 10을 더함.
@@ -112,6 +107,27 @@ unsigned int ascii_to_hex(const char* str, size_t size, uint8_t* hex)
         hex[h] = (high << 4) | low;
     }
     return h;
+    #else
+    unsigned int i, h, high, low, cnt;
+    for (h = 0, i = 0; i < size; i += 2, ++h) 
+    {
+        cnt = i;
+        //9보다 큰 경우 : 알파벳 문자 'A' 이상인 문자로, 'A'를 빼고 10을 더함.
+        //9이하인 경우 : 숫자 입력으로 '0'을 빼면 실제 값이 구해짐.
+        high = (str[i] > '9') ? str[i] - 'A' + 10 : str[i] - '0';
+        low = (str[i + 1] > '9') ? str[i + 1] - 'A' + 10 : str[i + 1] - '0';
+        //high 4비트, low 4비트이므로, 1바이트를 만들어주기 위해 high를 왼쪽으로 4비트 shift
+        //이후 OR(|)연산으로 합
+        hex[h] = (high << 4) | low;
+    }
+    /* 홀수 인 경우 */
+    if (i > size )
+    {
+        hex[h + 1] = high;
+        //Serial.printf( "ascii to hex hol in : %x\r\n", hex[h + 1]);
+    }
+    return h;
+    #endif
 }
 
 /* Display Boot Message */
@@ -261,13 +277,164 @@ void Timer_init()
 ret_code_t MakeMainPacket (void)
 {
 
-    makePacket.stx[ i ] = ascii2hex_arr[ i++ ];
-    makePacket.cmd_id = ascii2hex_arr[ i++ ];
+    // makePacket.packet.stx = ascii2hex_arr[ i++ ];
+    // makePacket.packet.cmd_id = ascii2hex_arr[ i++ ];
 
-       //Serial.println(makePacket.data);
+    //Serial.println(makePacket.data);
 }
 
-ret_code_t parse_MainboardPacket ( uint8_t * pData, uint8_t )
+ret_code_t parse_MainboardPacket ( uint8_t * pData )
+{
+    uint8_t i = 0;
+    uint8_t j = 0;
+    uint16_t num = 0;
+
+    /* Header */
+    makePacket.packet.stx = pData[num++];
+    makePacket.packet.cmd_id = pData[num++];
+    makePacket.packet.data_length = pData[num++];
+
+    /* Body */
+    /* Unique ID */
+    for (i = 0; i < 12; i++)
+    {
+        makePacket.packet.unique_id[i] = pData[num++];
+    }
+    /* Board type */
+    makePacket.packet.setboard_type[0] = pData[num++];
+    makePacket.packet.setboard_type[1] = pData[num++];
+    /* Sensor type */
+    makePacket.packet.sensor_type_1[0] = pData[num++];
+    makePacket.packet.sensor_type_1[1] = pData[num++];
+
+    makePacket.packet.sensor_type_2[0] = pData[num++];
+    makePacket.packet.sensor_type_2[1] = pData[num++];
+    /* Sensor boardinfo*/
+    makePacket.packet.sensor_id[0] = pData[num++];
+    makePacket.packet.sensor_id[1] = pData[num++];
+    makePacket.packet.sensor_state[0] = pData[num++];
+    makePacket.packet.sensor_state[1] = pData[num++];
+    /* sensor value */
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            makePacket.packet.pt_press[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            makePacket.packet.pt_temperature[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            makePacket.packet.shtm_temperature[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            makePacket.packet.shtm_humi[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    /* Footer */
+    makePacket.packet.crc16[0] = pData[num++];
+    makePacket.packet.crc16[1] = pData[num++];
+    makePacket.packet.etx = pData[num++];
+
+    return num; // 50
+}
+
+void printParsingdata (void)
+{
+    uint8_t i = 0;
+
+    /* Header */
+    makePacket.packet.stx;
+    makePacket.packet.cmd_id;
+    makePacket.packet.data_length;
+
+    Serial.printf("\n\n[Packet Header data]\r\nstx : %02X\r\ncmd_id : %02X\r\ndata_length : %02X\r\n",
+                    makePacket.packet.stx, makePacket.packet.cmd_id, makePacket.packet.data_length);
+
+    /* Body */
+    /* Unique ID */
+    Serial.printf("\n[Packet body data]\r\n");
+    Serial.printf("unique ID : ");
+    for (i = 0; i < 12; i++)
+    {
+        Serial.printf("%02X", makePacket.packet.unique_id[i]);
+    }
+    Serial.printf("\r\n");
+
+    /* Board type */
+    Serial.printf("board type : ");
+    Serial.printf("%02X%02X\r\n",
+                    makePacket.packet.setboard_type[0], makePacket.packet.setboard_type[1]);
+    
+    /* Sensor type */
+    Serial.printf("sensor type 1 : ");
+    Serial.printf("%02X%02X\r\n",
+                    makePacket.packet.sensor_type_1[0], makePacket.packet.sensor_type_1[1]);
+
+    Serial.printf("sensor type 2 : ");
+    Serial.printf("%02X%02X\r\n",
+                    makePacket.packet.sensor_type_2[0], makePacket.packet.sensor_type_2[1]);
+
+    /* Sensor boardinfo*/
+    Serial.printf("sensor id : ");
+    Serial.printf("%02X%02X\r\n",
+                    makePacket.packet.sensor_id[0], makePacket.packet.sensor_id[1]);
+
+    Serial.printf("sensor state : ");
+    Serial.printf("%02X%02X\r\n",
+                    makePacket.packet.sensor_state[0], makePacket.packet.sensor_state[1]);
+
+    /* sensor value */
+    for (i = 0; i < 4; i++)
+    {
+        Serial.printf("pt press %d : ", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", makePacket.packet.pt_press[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+    Serial.printf("\r\n");
+
+    #if 0
+    for (i = 0; i < 4; i++)
+    {
+        makePacket.packet.pt_temperature[i] = pData[num++];
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        makePacket.packet.shtm_temperature[i] = pData[num++];
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        makePacket.packet.shtm_humi[i] = pData[num++];
+    }
+
+    
+    /* Footer */
+    makePacket.packet.crc16[0] = pData[num++];
+    makePacket.packet.crc16[1] = pData[num++];
+    makePacket.packet.etx = pData[num++];
+    #endif
+}
 
 void setup() {
 
@@ -484,6 +651,8 @@ void Debug_Process (void)
 {
     uint8_t i = 0;
     uint16_t tmp_temperature = 0x80cd;    // Test variable      0x80cd = -20.5     0x00cd = +20.5 
+    uint8_t ascii2hex_length = 0;
+
     // // Serial.printf("Timer 1 Count Value : %d\r\n", timer1_count);
     #if 1
     if(Serial.available() > 0)
@@ -499,12 +668,32 @@ void Debug_Process (void)
         //Serial.println(uart_buf_tmp);
 
         strupr(uart_buf_tmp);
-        ascii_to_hex(uart_buf_tmp, uart_buf_cnt, ascii2hex_arr);
+        ascii2hex_length = ascii_to_hex(uart_buf_tmp, uart_buf_cnt, ascii2hex_arr);
         //Serial.println(ascii2hex_arr);
-        for (i = 0; i < (uart_buf_cnt / 2); i++)
+
+        if (( uart_buf_cnt % 2 ) == 0 )
         {
-            Serial.printf("%02X", ascii2hex_arr[i]);
+            //scii_to_hex(uart_buf_tmp, uart_buf_cnt, ascii2hex_arr);
+            for (i = 0; i < (uart_buf_cnt / 2); i++)
+            {
+                Serial.printf("%02X", ascii2hex_arr[i]);
+            }
+            Serial.print("\r\n");
         }
+        else if (( uart_buf_cnt % 2 ) > 0 )
+        {
+            for (i = 0; i < (uart_buf_cnt / 2); i++)
+            {
+                // Serial.printf("%02X", ascii2hex_arr[i]);
+                Serial.printf("%02X", ascii2hex_arr[i]);
+            }
+            Serial.printf("%X\r\n", ascii2hex_arr[ascii2hex_length + 1]);
+            Serial.printf("Last odd number: %x \r\n", ascii2hex_arr[ascii2hex_length + 1]);
+
+        }
+
+        Serial.printf("parsing data num : %d\r\n", parse_MainboardPacket(ascii2hex_arr));
+        printParsingdata();
     }
     #else
     if(Serial.available() > 0)

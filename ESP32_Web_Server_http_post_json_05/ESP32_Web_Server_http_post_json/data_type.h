@@ -6,6 +6,16 @@
 extern "C" {
 #endif
 
+#include <stdint.h>
+
+#define LED_BLUE  2
+
+#define CONNECT_TIMEOUT 5 // sec
+
+#define UART_BUF_MAX    256
+
+typedef uint32_t ret_code_t;
+
 #define PACKET_HEADER_LENGTH                3
 #define PACKET_BODY_LENGTH                  (4 * 3) + (30 * 2)
 #define PACKET_FOOTER_LENGTH                2
@@ -14,10 +24,9 @@ extern "C" {
 #define PACKET_HEADER_START                 PACKET_ARRAY_DEFAULT
 #define PACKET_HEADER_END                   PACKET_HEADER_LENGTH - 1
 #define PACKET_BODY_START                   PACKET_HEADER_LENGTH
-#define PACKET_BODY_END                     PACKET_BODY_START + PACKET_BODY_LENGTH
+#define PACKET_BODY_END                     PACKET_BODY_START + PACKET_BODY_LENGTH - 1
 #define PACKET_FOOTER_START                 PACKET_BODY_END + PACKET_FOOTER_LENGTH
-#define PACKET_FOOTER_END                   
-
+#define PACKET_FOOTER_END                   PACKET_FOOTER_START + PACKET_FOOTER_LENGTH
 
 #define PT_DATA_MAX                         8   // 4 x 2 byte.
 #define SHTM_DATA_MAX                       16  // 8 x 2 byte.
@@ -196,14 +205,14 @@ typedef struct
             uint8_t sensor_state[ 2 ];
 
             /* sensor value */
-            uint8_t pt_press[ PT_DATA_MAX ];
-            uint8_t pt_temperature[ PT_DATA_MAX ];
-            uint8_t shtm_temperature[ SHTM_DATA_MAX ];
-            uint8_t shtm_humi[ SHTM_DATA_MAX ];
+            uint8_t pt_press[ PT_DATA_MAX ][ 2 ];
+            uint8_t pt_temperature[ PT_DATA_MAX ][ 2 ];
+            uint8_t shtm_temperature[ SHTM_DATA_MAX ][ 2 ];
+            uint8_t shtm_humi[ SHTM_DATA_MAX ][ 2 ];
             
             /*** footer ***/
             uint8_t crc16[ 2 ]; 
-            uint8_t etx[ 2 ];                                  /**< ETX (End of Text) */
+            uint8_t etx;                                  /**< ETX (End of Text) */
         } packet;
         uint8_t data[ SOCKET_SEND_REPORT_PACKET_LENGTH ]; // length 수정 필요함
     };
