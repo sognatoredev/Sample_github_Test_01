@@ -84,8 +84,8 @@ void IRAM_ATTR onTimer1()
     // Period 1s
     portENTER_CRITICAL_ISR(&timerMux);
 
-    timer1_count++;
-    timer1_count2++;
+    timer1_count++; // state 
+    timer1_count2++; // http
     
     portEXIT_CRITICAL_ISR(&timerMux);
 }
@@ -303,6 +303,9 @@ ret_code_t parse_MainboardPacket ( uint8_t * pData )
     /* Board type */
     makePacket.packet.setboard_type[0] = pData[num++];
     makePacket.packet.setboard_type[1] = pData[num++];
+    /* Board id */
+    makePacket.packet.setboard_id[0] = pData[num++];
+    makePacket.packet.setboard_id[1] = pData[num++];
     /* Sensor type */
     makePacket.packet.sensor_type_1[0] = pData[num++];
     makePacket.packet.sensor_type_1[1] = pData[num++];
@@ -359,12 +362,94 @@ void printParsingdata (void)
 {
     uint8_t i = 0;
 
-    /* Header */
-    makePacket.packet.stx;
-    makePacket.packet.cmd_id;
-    makePacket.packet.data_length;
+    Serial.printf("\n\n************************ data parsing print ************************\r\n");
 
-    Serial.printf("\n\n[Packet Header data]\r\nstx : %02X\r\ncmd_id : %02X\r\ndata_length : %02X\r\n",
+    #if 1 // 0x hex print
+        /* Header */
+    Serial.printf("\n[Packet Header data]\r\nstx : 0x%02X\r\ncmd_id : 0x%02X\r\ndata_length : 0x%02X\r\n",
+                    makePacket.packet.stx, makePacket.packet.cmd_id, makePacket.packet.data_length);
+
+    /* Body */
+    /* Unique ID */
+    Serial.printf("\n[Packet body data]\r\n");
+    Serial.printf("unique ID : 0x");
+    for (i = 0; i < 12; i++)
+    {
+        Serial.printf("%02X", makePacket.packet.unique_id[i]);
+    }
+    Serial.printf("\r\n");
+
+    /* Board type */
+    Serial.printf("board type : ");
+    Serial.printf("0x%02X%02X\r\n",
+                    makePacket.packet.setboard_type[0], makePacket.packet.setboard_type[1]);
+    /* Board id */
+    Serial.printf("board id : ");
+    Serial.printf("0x%02X%02X\r\n",
+                    makePacket.packet.setboard_id[0], makePacket.packet.setboard_id[1]);
+    /* Sensor type */
+    Serial.printf("sensor type 1 : ");
+    Serial.printf("0x%02X%02X\r\n",
+                    makePacket.packet.sensor_type_1[0], makePacket.packet.sensor_type_1[1]);
+    Serial.printf("sensor type 2 : ");
+    Serial.printf("0x%02X%02X\r\n",
+                    makePacket.packet.sensor_type_2[0], makePacket.packet.sensor_type_2[1]);
+    /* Sensor id */
+    Serial.printf("sensor id : ");
+    Serial.printf("0x%02X%02X\r\n",
+                    makePacket.packet.sensor_id[0], makePacket.packet.sensor_id[1]);
+    /* Sensor state */
+    Serial.printf("sensor state : ");
+    Serial.printf("0x%02X%02X\r\n",
+                    makePacket.packet.sensor_state[0], makePacket.packet.sensor_state[1]);
+    /* sensor value */
+    /* PT press */
+    for (i = 0; i < 4; i++)
+    {
+        Serial.printf("pt press %d : 0x", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", makePacket.packet.pt_press[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+    /* PT temperature */
+    for (i = 0; i < 4; i++)
+    {
+        Serial.printf("pt temperature %d : 0x", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", makePacket.packet.pt_temperature[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+    /* SHTM temperature */
+    for (i = 0; i < 8; i++)
+    {
+        Serial.printf("shtm temperature %d : 0x", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", makePacket.packet.shtm_temperature[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+    /* SHTM press */
+    for (i = 0; i < 8; i++)
+    {
+        Serial.printf("shtm humidity %d : 0x", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", makePacket.packet.shtm_humi[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+
+    /* Footer */
+    Serial.printf("\r\n[Packet Footer data]\r\ncrc16 : 0x%02X%02X\r\netx : 0x%02X\r\n",
+                    makePacket.packet.crc16[0], makePacket.packet.crc16[1], makePacket.packet.etx);
+    #else
+    /* Header */
+    Serial.printf("\n[Packet Header data]\r\nstx : %02X\r\ncmd_id : %02X\r\ndata_length : %02X\r\n",
                     makePacket.packet.stx, makePacket.packet.cmd_id, makePacket.packet.data_length);
 
     /* Body */
@@ -381,26 +466,27 @@ void printParsingdata (void)
     Serial.printf("board type : ");
     Serial.printf("%02X%02X\r\n",
                     makePacket.packet.setboard_type[0], makePacket.packet.setboard_type[1]);
-    
+    /* Board id */
+    Serial.printf("board id : ");
+    Serial.printf("%02X%02X\r\n",
+                    makePacket.packet.setboard_id[0], makePacket.packet.setboard_id[1]);
     /* Sensor type */
     Serial.printf("sensor type 1 : ");
     Serial.printf("%02X%02X\r\n",
                     makePacket.packet.sensor_type_1[0], makePacket.packet.sensor_type_1[1]);
-
     Serial.printf("sensor type 2 : ");
     Serial.printf("%02X%02X\r\n",
                     makePacket.packet.sensor_type_2[0], makePacket.packet.sensor_type_2[1]);
-
-    /* Sensor boardinfo*/
+    /* Sensor id */
     Serial.printf("sensor id : ");
     Serial.printf("%02X%02X\r\n",
                     makePacket.packet.sensor_id[0], makePacket.packet.sensor_id[1]);
-
+    /* Sensor state */
     Serial.printf("sensor state : ");
     Serial.printf("%02X%02X\r\n",
                     makePacket.packet.sensor_state[0], makePacket.packet.sensor_state[1]);
-
     /* sensor value */
+    /* PT press */
     for (i = 0; i < 4; i++)
     {
         Serial.printf("pt press %d : ", i);
@@ -410,7 +496,43 @@ void printParsingdata (void)
         }
         Serial.printf("\r\n");
     }
-    Serial.printf("\r\n");
+    /* PT temperature */
+    for (i = 0; i < 4; i++)
+    {
+        Serial.printf("pt temperature %d : ", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", makePacket.packet.pt_temperature[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+    /* SHTM temperature */
+    for (i = 0; i < 8; i++)
+    {
+        Serial.printf("shtm temperature %d : ", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", makePacket.packet.shtm_temperature[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+    /* SHTM press */
+    for (i = 0; i < 8; i++)
+    {
+        Serial.printf("shtm humidity %d : ", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", makePacket.packet.shtm_humi[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+
+    /* Footer */
+    Serial.printf("\r\n[Packet Footer data]\r\ncrc16 : %02X%02X\r\netx : %02X\r\n",
+                    makePacket.packet.crc16[0], makePacket.packet.crc16[1], makePacket.packet.etx);
+    #endif
+    
+    Serial.printf("\n************************ end ************************\r\n\n");
 
     #if 0
     for (i = 0; i < 4; i++)
@@ -553,6 +675,15 @@ String getTestData()
     return (jsondata);
 } 
 
+void StateLED_Process (void)
+{
+    if ( timer1_count2 >= 1000 )
+    {
+        timer1_count = 0;
+        digitalWrite(LED_BLUE, !digitalRead(LED_BLUE));
+    }
+}
+
 void WiFi_Process (void)
 {
     if ( MakePacketData > 0x00 )
@@ -573,7 +704,7 @@ void WiFi_Process (void)
         /* Critical section enter */
         portENTER_CRITICAL(&timerMux);
     
-        timer1_count = 0;
+        //timer1_count = 0;
         timer1_count2 = 0;
 
         /* Critical senction exit */
@@ -616,7 +747,7 @@ void WiFi_Process (void)
         }
         
         // LED Blue Pin GPIO2 Toggle.
-        digitalWrite(LED_BLUE, !digitalRead(LED_BLUE));
+        // digitalWrite(LED_BLUE, !digitalRead(LED_BLUE));
         // delay(30000000);  //Send a request every 10 seconds
         //delay(1000);  //Send a request every 10 seconds
     }
@@ -692,7 +823,7 @@ void Debug_Process (void)
 
         }
 
-        Serial.printf("parsing data num : %d\r\n", parse_MainboardPacket(ascii2hex_arr));
+        Serial.printf("parsing data length : %d\r\n", parse_MainboardPacket(ascii2hex_arr));
         printParsingdata();
     }
     #else
@@ -721,6 +852,7 @@ void Debug_Process (void)
 }
 
 void loop() {
+    StateLED_Process();
     WiFi_Process();
     Debug_Process();
 }
