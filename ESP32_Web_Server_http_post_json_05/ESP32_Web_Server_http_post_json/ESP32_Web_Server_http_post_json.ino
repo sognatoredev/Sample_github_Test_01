@@ -12,8 +12,8 @@
 #endif
 
 
-SocketSendReportPacket_t makePacket;
-ParsingDataType_t parsePacketData;
+SocketSendReportPacket_t makeReportPacket;
+ParseReceivedData_t parseReceivedData;
 
 /* create a hardware timer */
 hw_timer_t * timer = NULL;
@@ -276,7 +276,54 @@ void Timer_init()
 
 ret_code_t MakeMainPacket (void)
 {
+    #if 0 // packet struct
+    /*** body ***/
+    /* device info */
+    /* MCU Unique ID */
+    uint8_t unique_id[ 12 ];                 /**< Unique ID 12 byte [ MSB | LSB ] */ 
 
+    /* Board type */
+    uint8_t setboard_type[ 2 ];                 /**< current battery level */
+    uint8_t setboard_id[ 2 ];                   /**< Set Board id _ Master _ Slave_n */
+    
+    /* Sensor type */
+    uint8_t sensor_type_1[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
+    uint8_t sensor_type_2[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
+
+    /* sensor bd info */
+    uint8_t sensor_id[ 2 ];
+    uint8_t sensor_state[ 2 ];
+
+    /* sensor value */
+    uint8_t pt_press[ PT_DATA_MAX ][ 2 ];
+    uint8_t pt_temperature[ PT_DATA_MAX ][ 2 ];
+    uint8_t shtm_temperature[ SHTM_DATA_MAX ][ 2 ];
+    uint8_t shtm_humi[ SHTM_DATA_MAX ][ 2 ];
+    #endif
+
+    uint8_t i = 0;
+
+    /* Body */
+    /* MCU Unique ID */
+    for (i = 0; i < 12; i++)
+    {
+        parseReceivedData.packet.unique_id[i] = parseReceivedData.packet.unique_id[i];
+    }
+    /* Board type */
+    parseReceivedData.packet.setboard_type[0] = parseReceivedData.packet.setboard_type[0];
+    parseReceivedData.packet.setboard_type[1] = parseReceivedData.packet.setboard_type[1];
+    parseReceivedData.packet.setboard_id[0] = parseReceivedData.packet.setboard_id[0];
+    parseReceivedData.packet.setboard_id[1] = parseReceivedData.packet.setboard_id[1];
+    /* Sensor type */
+    parseReceivedData.packet.sensor_type_1[0] = parseReceivedData.packet.sensor_type_1[0];
+    parseReceivedData.packet.sensor_type_1[1] = parseReceivedData.packet.sensor_type_1[1];
+    /* sensor value */
+    parseReceivedData.packet.sensor_type_2[0] = parseReceivedData.packet.sensor_type_2[0];
+    parseReceivedData.packet.sensor_type_2[1] = parseReceivedData.packet.sensor_type_2[1];
+    
+    parseReceivedData.packet.sensor_type_2[1] = parseReceivedData.packet.sensor_type_2[1];
+    parseReceivedData.packet.sensor_type_2[1] = parseReceivedData.packet.sensor_type_2[1];
+ 
     // makePacket.packet.stx = ascii2hex_arr[ i++ ];
     // makePacket.packet.cmd_id = ascii2hex_arr[ i++ ];
 
@@ -290,39 +337,39 @@ ret_code_t parse_MainboardPacket ( uint8_t * pData )
     uint16_t num = 0;
 
     /* Header */
-    makePacket.packet.stx = pData[num++];
-    makePacket.packet.cmd_id = pData[num++];
-    makePacket.packet.data_length = pData[num++];
+    parseReceivedData.packet.stx = pData[num++];
+    parseReceivedData.packet.cmd_id = pData[num++];
+    parseReceivedData.packet.data_length = pData[num++];
 
     /* Body */
     /* Unique ID */
     for (i = 0; i < 12; i++)
     {
-        makePacket.packet.unique_id[i] = pData[num++];
+        parseReceivedData.packet.unique_id[i] = pData[num++];
     }
     /* Board type */
-    makePacket.packet.setboard_type[0] = pData[num++];
-    makePacket.packet.setboard_type[1] = pData[num++];
+    parseReceivedData.packet.setboard_type[0] = pData[num++];
+    parseReceivedData.packet.setboard_type[1] = pData[num++];
     /* Board id */
-    makePacket.packet.setboard_id[0] = pData[num++];
-    makePacket.packet.setboard_id[1] = pData[num++];
+    parseReceivedData.packet.setboard_id[0] = pData[num++];
+    parseReceivedData.packet.setboard_id[1] = pData[num++];
     /* Sensor type */
-    makePacket.packet.sensor_type_1[0] = pData[num++];
-    makePacket.packet.sensor_type_1[1] = pData[num++];
+    parseReceivedData.packet.sensor_type_1[0] = pData[num++];
+    parseReceivedData.packet.sensor_type_1[1] = pData[num++];
 
-    makePacket.packet.sensor_type_2[0] = pData[num++];
-    makePacket.packet.sensor_type_2[1] = pData[num++];
+    parseReceivedData.packet.sensor_type_2[0] = pData[num++];
+    parseReceivedData.packet.sensor_type_2[1] = pData[num++];
     /* Sensor boardinfo*/
-    makePacket.packet.sensor_id[0] = pData[num++];
-    makePacket.packet.sensor_id[1] = pData[num++];
-    makePacket.packet.sensor_state[0] = pData[num++];
-    makePacket.packet.sensor_state[1] = pData[num++];
+    parseReceivedData.packet.sensor_id[0] = pData[num++];
+    parseReceivedData.packet.sensor_id[1] = pData[num++];
+    parseReceivedData.packet.sensor_state[0] = pData[num++];
+    parseReceivedData.packet.sensor_state[1] = pData[num++];
     /* sensor value */
     for (i = 0; i < 4; i++)
     {
         for (j = 0; j < 2; j++)
         {
-            makePacket.packet.pt_press[i][j] = (uint8_t) pData[num++];
+            parseReceivedData.packet.pt_press[i][j] = (uint8_t) pData[num++];
         }
     }
 
@@ -330,7 +377,7 @@ ret_code_t parse_MainboardPacket ( uint8_t * pData )
     {
         for (j = 0; j < 2; j++)
         {
-            makePacket.packet.pt_temperature[i][j] = (uint8_t) pData[num++];
+            parseReceivedData.packet.pt_temperature[i][j] = (uint8_t) pData[num++];
         }
     }
 
@@ -338,7 +385,7 @@ ret_code_t parse_MainboardPacket ( uint8_t * pData )
     {
         for (j = 0; j < 2; j++)
         {
-            makePacket.packet.shtm_temperature[i][j] = (uint8_t) pData[num++];
+            parseReceivedData.packet.shtm_temperature[i][j] = (uint8_t) pData[num++];
         }
     }
 
@@ -346,14 +393,14 @@ ret_code_t parse_MainboardPacket ( uint8_t * pData )
     {
         for (j = 0; j < 2; j++)
         {
-            makePacket.packet.shtm_humi[i][j] = (uint8_t) pData[num++];
+            parseReceivedData.packet.shtm_humi[i][j] = (uint8_t) pData[num++];
         }
     }
 
     /* Footer */
-    makePacket.packet.crc16[0] = pData[num++];
-    makePacket.packet.crc16[1] = pData[num++];
-    makePacket.packet.etx = pData[num++];
+    parseReceivedData.packet.crc16[0] = pData[num++];
+    parseReceivedData.packet.crc16[1] = pData[num++];
+    parseReceivedData.packet.etx = pData[num++];
 
     return num; // 50
 }
@@ -367,7 +414,7 @@ void printParsingdata (void)
     #if 1 // 0x hex print
         /* Header */
     Serial.printf("\n[Packet Header data]\r\nstx : 0x%02X\r\ncmd_id : 0x%02X\r\ndata_length : 0x%02X\r\n",
-                    makePacket.packet.stx, makePacket.packet.cmd_id, makePacket.packet.data_length);
+                    parseReceivedData.packet.stx, parseReceivedData.packet.cmd_id, parseReceivedData.packet.data_length);
 
     /* Body */
     /* Unique ID */
@@ -375,33 +422,32 @@ void printParsingdata (void)
     Serial.printf("unique ID : 0x");
     for (i = 0; i < 12; i++)
     {
-        Serial.printf("%02X", makePacket.packet.unique_id[i]);
+        Serial.printf("%02X", parseReceivedData.packet.unique_id[i]);
     }
     Serial.printf("\r\n");
-
     /* Board type */
     Serial.printf("board type : ");
     Serial.printf("0x%02X%02X\r\n",
-                    makePacket.packet.setboard_type[0], makePacket.packet.setboard_type[1]);
+                    parseReceivedData.packet.setboard_type[0], parseReceivedData.packet.setboard_type[1]);
     /* Board id */
     Serial.printf("board id : ");
     Serial.printf("0x%02X%02X\r\n",
-                    makePacket.packet.setboard_id[0], makePacket.packet.setboard_id[1]);
+                    parseReceivedData.packet.setboard_id[0], parseReceivedData.packet.setboard_id[1]);
     /* Sensor type */
     Serial.printf("sensor type 1 : ");
     Serial.printf("0x%02X%02X\r\n",
-                    makePacket.packet.sensor_type_1[0], makePacket.packet.sensor_type_1[1]);
+                    parseReceivedData.packet.sensor_type_1[0], parseReceivedData.packet.sensor_type_1[1]);
     Serial.printf("sensor type 2 : ");
     Serial.printf("0x%02X%02X\r\n",
-                    makePacket.packet.sensor_type_2[0], makePacket.packet.sensor_type_2[1]);
+                    parseReceivedData.packet.sensor_type_2[0], parseReceivedData.packet.sensor_type_2[1]);
     /* Sensor id */
     Serial.printf("sensor id : ");
     Serial.printf("0x%02X%02X\r\n",
-                    makePacket.packet.sensor_id[0], makePacket.packet.sensor_id[1]);
+                    parseReceivedData.packet.sensor_id[0], parseReceivedData.packet.sensor_id[1]);
     /* Sensor state */
     Serial.printf("sensor state : ");
     Serial.printf("0x%02X%02X\r\n",
-                    makePacket.packet.sensor_state[0], makePacket.packet.sensor_state[1]);
+                    parseReceivedData.packet.sensor_state[0], parseReceivedData.packet.sensor_state[1]);
     /* sensor value */
     /* PT press */
     for (i = 0; i < 4; i++)
@@ -409,7 +455,7 @@ void printParsingdata (void)
         Serial.printf("pt press %d : 0x", i);
         for (uint8_t j = 0; j < 2; j++)
         {
-            Serial.printf("%02X", makePacket.packet.pt_press[i][j]);
+            Serial.printf("%02X", parseReceivedData.packet.pt_press[i][j]);
         }
         Serial.printf("\r\n");
     }
@@ -419,7 +465,7 @@ void printParsingdata (void)
         Serial.printf("pt temperature %d : 0x", i);
         for (uint8_t j = 0; j < 2; j++)
         {
-            Serial.printf("%02X", makePacket.packet.pt_temperature[i][j]);
+            Serial.printf("%02X", parseReceivedData.packet.pt_temperature[i][j]);
         }
         Serial.printf("\r\n");
     }
@@ -429,7 +475,7 @@ void printParsingdata (void)
         Serial.printf("shtm temperature %d : 0x", i);
         for (uint8_t j = 0; j < 2; j++)
         {
-            Serial.printf("%02X", makePacket.packet.shtm_temperature[i][j]);
+            Serial.printf("%02X", parseReceivedData.packet.shtm_temperature[i][j]);
         }
         Serial.printf("\r\n");
     }
@@ -439,18 +485,18 @@ void printParsingdata (void)
         Serial.printf("shtm humidity %d : 0x", i);
         for (uint8_t j = 0; j < 2; j++)
         {
-            Serial.printf("%02X", makePacket.packet.shtm_humi[i][j]);
+            Serial.printf("%02X", parseReceivedData.packet.shtm_humi[i][j]);
         }
         Serial.printf("\r\n");
     }
 
     /* Footer */
     Serial.printf("\r\n[Packet Footer data]\r\ncrc16 : 0x%02X%02X\r\netx : 0x%02X\r\n",
-                    makePacket.packet.crc16[0], makePacket.packet.crc16[1], makePacket.packet.etx);
+                    parseReceivedData.packet.crc16[0], parseReceivedData.packet.crc16[1], parseReceivedData.packet.etx);
     #else
     /* Header */
     Serial.printf("\n[Packet Header data]\r\nstx : %02X\r\ncmd_id : %02X\r\ndata_length : %02X\r\n",
-                    makePacket.packet.stx, makePacket.packet.cmd_id, makePacket.packet.data_length);
+                    parseReceivedData.packet.stx, parseReceivedData.packet.cmd_id, parseReceivedData.packet.data_length);
 
     /* Body */
     /* Unique ID */
@@ -458,33 +504,33 @@ void printParsingdata (void)
     Serial.printf("unique ID : ");
     for (i = 0; i < 12; i++)
     {
-        Serial.printf("%02X", makePacket.packet.unique_id[i]);
+        Serial.printf("%02X", parseReceivedData.packet.unique_id[i]);
     }
     Serial.printf("\r\n");
 
     /* Board type */
     Serial.printf("board type : ");
     Serial.printf("%02X%02X\r\n",
-                    makePacket.packet.setboard_type[0], makePacket.packet.setboard_type[1]);
+                    parseReceivedData.packet.setboard_type[0], parseReceivedData.packet.setboard_type[1]);
     /* Board id */
     Serial.printf("board id : ");
     Serial.printf("%02X%02X\r\n",
-                    makePacket.packet.setboard_id[0], makePacket.packet.setboard_id[1]);
+                    parseReceivedData.packet.setboard_id[0], parseReceivedData.packet.setboard_id[1]);
     /* Sensor type */
     Serial.printf("sensor type 1 : ");
     Serial.printf("%02X%02X\r\n",
-                    makePacket.packet.sensor_type_1[0], makePacket.packet.sensor_type_1[1]);
+                    parseReceivedData.packet.sensor_type_1[0], parseReceivedData.packet.sensor_type_1[1]);
     Serial.printf("sensor type 2 : ");
     Serial.printf("%02X%02X\r\n",
-                    makePacket.packet.sensor_type_2[0], makePacket.packet.sensor_type_2[1]);
+                    parseReceivedData.packet.sensor_type_2[0], parseReceivedData.packet.sensor_type_2[1]);
     /* Sensor id */
     Serial.printf("sensor id : ");
     Serial.printf("%02X%02X\r\n",
-                    makePacket.packet.sensor_id[0], makePacket.packet.sensor_id[1]);
+                    parseReceivedData.packet.sensor_id[0], parseReceivedData.packet.sensor_id[1]);
     /* Sensor state */
     Serial.printf("sensor state : ");
     Serial.printf("%02X%02X\r\n",
-                    makePacket.packet.sensor_state[0], makePacket.packet.sensor_state[1]);
+                    parseReceivedData.packet.sensor_state[0], parseReceivedData.packet.sensor_state[1]);
     /* sensor value */
     /* PT press */
     for (i = 0; i < 4; i++)
@@ -492,7 +538,7 @@ void printParsingdata (void)
         Serial.printf("pt press %d : ", i);
         for (uint8_t j = 0; j < 2; j++)
         {
-            Serial.printf("%02X", makePacket.packet.pt_press[i][j]);
+            Serial.printf("%02X", parseReceivedData.packet.pt_press[i][j]);
         }
         Serial.printf("\r\n");
     }
@@ -502,7 +548,7 @@ void printParsingdata (void)
         Serial.printf("pt temperature %d : ", i);
         for (uint8_t j = 0; j < 2; j++)
         {
-            Serial.printf("%02X", makePacket.packet.pt_temperature[i][j]);
+            Serial.printf("%02X", parseReceivedData.packet.pt_temperature[i][j]);
         }
         Serial.printf("\r\n");
     }
@@ -512,7 +558,7 @@ void printParsingdata (void)
         Serial.printf("shtm temperature %d : ", i);
         for (uint8_t j = 0; j < 2; j++)
         {
-            Serial.printf("%02X", makePacket.packet.shtm_temperature[i][j]);
+            Serial.printf("%02X", parseReceivedData.packet.shtm_temperature[i][j]);
         }
         Serial.printf("\r\n");
     }
@@ -522,14 +568,14 @@ void printParsingdata (void)
         Serial.printf("shtm humidity %d : ", i);
         for (uint8_t j = 0; j < 2; j++)
         {
-            Serial.printf("%02X", makePacket.packet.shtm_humi[i][j]);
+            Serial.printf("%02X", parseReceivedData.packet.shtm_humi[i][j]);
         }
         Serial.printf("\r\n");
     }
 
     /* Footer */
     Serial.printf("\r\n[Packet Footer data]\r\ncrc16 : %02X%02X\r\netx : %02X\r\n",
-                    makePacket.packet.crc16[0], makePacket.packet.crc16[1], makePacket.packet.etx);
+                    parseReceivedData.packet.crc16[0], parseReceivedData.packet.crc16[1], parseReceivedData.packet.etx);
     #endif
     
     Serial.printf("\n************************ end ************************\r\n\n");

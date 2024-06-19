@@ -8,13 +8,16 @@ extern "C" {
 
 #include <stdint.h>
 
+typedef uint32_t ret_code_t;
+
 #define LED_BLUE  2
 
 #define CONNECT_TIMEOUT 5 // sec
 
 #define UART_BUF_MAX    256
 
-typedef uint32_t ret_code_t;
+#define PACKET_DEFAULT_TYPE_BYTE            2
+#define PACKET_UNIQUEID_TYPE_BYTE           12
 
 #define PACKET_HEADER_LENGTH                3
 #define PACKET_BODY_LENGTH                  (4 * 3) + (30 * 2)
@@ -183,6 +186,39 @@ typedef struct
     {
         struct
         {
+            /*** body ***/
+            /* device info */
+            /* MCU Unique ID */
+            uint8_t unique_id[ PACKET_UNIQUEID_TYPE_BYTE ];                 /**< Unique ID 12 byte [ MSB | LSB ] */ 
+
+            /* Board type */
+            uint8_t setboard_type[ PACKET_DEFAULT_TYPE_BYTE ];                 /**< current battery level */
+            uint8_t setboard_id[ PACKET_DEFAULT_TYPE_BYTE ];                   /**< Set Board id _ Master _ Slave_n */
+            
+            /* Sensor type */
+            uint8_t sensor_type_1[ PACKET_DEFAULT_TYPE_BYTE ];                 /**< Sensor Type id [ MSB | LSB ] */
+            uint8_t sensor_type_2[ PACKET_DEFAULT_TYPE_BYTE ];                 /**< Sensor Type id [ MSB | LSB ] */
+
+            /* sensor bd info */
+            uint8_t sensor_id[ PACKET_DEFAULT_TYPE_BYTE ];
+            uint8_t sensor_state[ PACKET_DEFAULT_TYPE_BYTE ];
+
+            /* sensor value */
+            uint8_t pt_press[ PT_DATA_MAX ][ PACKET_DEFAULT_TYPE_BYTE ];
+            uint8_t pt_temperature[ PT_DATA_MAX ][ PACKET_DEFAULT_TYPE_BYTE ];
+            uint8_t shtm_temperature[ SHTM_DATA_MAX ][ PACKET_DEFAULT_TYPE_BYTE ];
+            uint8_t shtm_humi[ SHTM_DATA_MAX ][ PACKET_DEFAULT_TYPE_BYTE ];
+        } ReportPacket;
+        uint8_t data[ SOCKET_SEND_REPORT_PACKET_LENGTH ]; // length 수정 필요함
+    };
+} SocketSendReportPacket_t;
+
+typedef struct
+{
+    union
+    {
+        struct
+        {
             /*** header ***/
             uint8_t stx;                            /**< STX (Start of Text) 0xFF */
             uint8_t cmd_id;                         /**< Command ID */
@@ -191,24 +227,24 @@ typedef struct
             /*** body ***/
             /* device info */
             /* MCU Unique ID */
-            uint8_t unique_id[ 12 ];                 /**< Unique ID 12 byte [ MSB | LSB ] */ 
+            uint8_t unique_id[ PACKET_UNIQUEID_TYPE_BYTE ];                 /**< Unique ID 12 byte [ MSB | LSB ] */ 
 
-            uint8_t setboard_type[ 2 ];                 /**< current battery level */
-            uint8_t setboard_id[ 2 ];                   /**< Set Board id _ Master _ Slave_n */
+            uint8_t setboard_type[ PACKET_DEFAULT_TYPE_BYTE ];                 /**< current battery level */
+            uint8_t setboard_id[ PACKET_DEFAULT_TYPE_BYTE ];                   /**< Set Board id _ Master _ Slave_n */
             
             /* Sensor type */
-            uint8_t sensor_type_1[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
-            uint8_t sensor_type_2[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
+            uint8_t sensor_type_1[ PACKET_DEFAULT_TYPE_BYTE ];                 /**< Sensor Type id [ MSB | LSB ] */
+            uint8_t sensor_type_2[ PACKET_DEFAULT_TYPE_BYTE ];                 /**< Sensor Type id [ MSB | LSB ] */
 
             /* sensor bd info */
-            uint8_t sensor_id[ 2 ];
-            uint8_t sensor_state[ 2 ];
+            uint8_t sensor_id[ PACKET_DEFAULT_TYPE_BYTE ];
+            uint8_t sensor_state[ PACKET_DEFAULT_TYPE_BYTE ];
 
             /* sensor value */
-            uint8_t pt_press[ PT_DATA_MAX ][ 2 ];
-            uint8_t pt_temperature[ PT_DATA_MAX ][ 2 ];
-            uint8_t shtm_temperature[ SHTM_DATA_MAX ][ 2 ];
-            uint8_t shtm_humi[ SHTM_DATA_MAX ][ 2 ];
+            uint8_t pt_press[ PT_DATA_MAX ][ PACKET_DEFAULT_TYPE_BYTE ];
+            uint8_t pt_temperature[ PT_DATA_MAX ][ PACKET_DEFAULT_TYPE_BYTE ];
+            uint8_t shtm_temperature[ SHTM_DATA_MAX ][ PACKET_DEFAULT_TYPE_BYTE ];
+            uint8_t shtm_humi[ SHTM_DATA_MAX ][ PACKET_DEFAULT_TYPE_BYTE ];
             
             /*** footer ***/
             uint8_t crc16[ 2 ]; 
@@ -216,35 +252,7 @@ typedef struct
         } packet;
         uint8_t data[ SOCKET_SEND_REPORT_PACKET_LENGTH ]; // length 수정 필요함
     };
-} SocketSendReportPacket_t;
-
-typedef struct
-{
-    uint8_t parse_cmd_id;                         /**< Command ID */
-    uint8_t parse_data_length;                    /**< Data length */
-
-     /*** body ***/
-    /* device info */
-    /* MCU Unique ID */
-    uint8_t parse_unique_id[ 12 ];                 /**< Unique ID 12 byte [ MSB | LSB ] */ 
-
-    uint8_t parse_setboard_type[ 2 ];                 /**< current battery level */
-    uint8_t parse_setboard_id[ 2 ];                   /**< Set Board id _ Master _ Slave_n */
-    
-    /* Sensor type */
-    uint8_t parse_sensor_type_1[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
-    uint8_t parse_sensor_type_2[ 2 ];                 /**< Sensor Type id [ MSB | LSB ] */
-
-    /* sensor bd info */
-    uint8_t parse_sensor_id[ 2 ];
-    uint8_t parse_sensor_state[ 2 ];
-
-    /* sensor value */
-    uint8_t parse_ptpress[ PT_DATA_MAX ];
-    uint8_t parse_pttemperature[ PT_DATA_MAX ];
-    uint8_t parse_shtmtemperature[ SHTM_DATA_MAX ];
-    uint8_t parse_shtmhumi[ SHTM_DATA_MAX ];
-} ParsingDataType_t;
+} ParseReceivedData_t;
 
 #else
 typedef struct
