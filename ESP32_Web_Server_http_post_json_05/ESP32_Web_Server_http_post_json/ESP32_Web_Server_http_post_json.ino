@@ -788,6 +788,50 @@ float Temperature_Converter (uint16_t temperatureValue)
     return fValue;
 }
 
+ret_code_t RecievedSerialDataPrint(uint8_t type, char * pData, size_t length)
+{
+    uint8_t i = 0;
+
+    switch ( type )
+    {
+        case 1 :
+            for (i = 0; i < length; i++)
+            {
+                Serial.printf("%X", pData[i]);
+            }
+            break;
+        case 2 :
+            for (i = 0; i < length; i++)
+            {
+                Serial.printf("%C", pData[i]);
+            }
+            break;
+        case 3 :
+            for (i = 0; i < length; i++)
+            {
+                Serial.printf("%X", pData[i]);
+            }
+            break;
+        case 4 :
+            for (i = 0; i < length; i++)
+            {
+                Serial.printf("%X", pData[i]);
+            }
+            break;
+        default:
+            break;
+
+    }
+        if ( pData != NULL )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+}
+
 void Debug_Process (void)
 {
     uint8_t i = 0;
@@ -807,6 +851,8 @@ void Debug_Process (void)
         Temperature_Converter(tmp_temperature); // Test print.
         
         //Serial.println(uart_buf_tmp);
+        RecievedSerialDataPrint(2, uart_buf_tmp, uart_buf_cnt);
+        Serial.print("\r\n");
 
         strupr(uart_buf_tmp);
         ascii2hex_length = ascii_to_hex(uart_buf_tmp, uart_buf_cnt, ascii2hex_arr);
