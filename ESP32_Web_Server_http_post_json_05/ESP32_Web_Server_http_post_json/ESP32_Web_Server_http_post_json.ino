@@ -604,43 +604,7 @@ void printParsingdata (void)
     #endif
 }
 
-void setup() {
 
-    uint8_t connect_cnt = 0;
-    pinMode(LED_BLUE,OUTPUT);
-    
-    Serial.begin(115200);
-
-    Timer_init();
-    /* Timer Setting Value */
-    // timer = timerBegin(1000000);
-    // timerAttachInterrupt(timer, &onTimer1);
-    // timerAlarm(timer, 1000, true, 0); // 1ms
-
-    BootMessagePrint();
-
-    if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS))
-    {
-        Serial.println("STA failed to configure");
-    }
-    WiFi.begin(ssid, password);   // 와이파이 접속
-    
-    #if 1
-    while (WiFi.status() != WL_CONNECTED)
-    { //Check for the connection
-        delay(1000);
-        Serial.println("Connecting to WiFi..");
-    }
-    #else
-    while (WiFi.status() != WL_CONNECTED)
-    { //Check for the connection
-        delay(1000);
-        Serial.println("Connecting to WiFi..");
-    }
-    #endif
-    
-    Serial.println("Connected to the WiFi network");
-}
 
 String getTestData()
 {
@@ -895,6 +859,44 @@ void Debug_Process (void)
     }
     #endif
     //MakeMainPacket();
+}
+
+void setup() {
+
+    uint8_t connect_cnt = 0;
+    pinMode(LED_BLUE,OUTPUT);
+    
+    Serial.begin(115200);
+
+    Timer_init();
+    /* Timer Setting Value */
+    // timer = timerBegin(1000000);
+    // timerAttachInterrupt(timer, &onTimer1);
+    // timerAlarm(timer, 1000, true, 0); // 1ms
+
+    BootMessagePrint();
+
+    if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS))
+    {
+        Serial.println("STA failed to configure");
+    }
+    WiFi.begin(ssid, password);   // 와이파이 접속
+    
+    #if 1
+    while (WiFi.status() != WL_CONNECTED)
+    { //Check for the connection
+        delay(1000);
+        Serial.println("Connecting to WiFi..");
+    }
+    #else
+    while (WiFi.status() != WL_CONNECTED)
+    { //Check for the connection
+        delay(1000);
+        Serial.println("Connecting to WiFi..");
+    }
+    #endif
+    
+    Serial.println("Connected to the WiFi network");
 }
 
 void loop() {
