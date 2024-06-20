@@ -11,7 +11,6 @@
 #define DEBUG
 #endif
 
-
 SocketSendReportPacket_t makeReportPacket;
 ParseReceivedData_t parseReceivedData;
 
