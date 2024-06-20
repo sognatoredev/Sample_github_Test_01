@@ -809,7 +809,7 @@ ret_code_t RecievedSerialDataPrint(uint8_t type, char * pData, size_t length)
         case 3 :
             for (i = 0; i < length; i++)
             {
-                Serial.printf("%X", pData[i]);
+                Serial.printf("%s", pData[i]);
             }
             break;
         case 4 :
@@ -851,7 +851,8 @@ void Debug_Process (void)
         Temperature_Converter(tmp_temperature); // Test print.
         
         //Serial.println(uart_buf_tmp);
-        RecievedSerialDataPrint(2, uart_buf_tmp, uart_buf_cnt);
+        Serial.printf("\r\nreturn value :%d\r\n", RecievedSerialDataPrint(2, uart_buf_tmp, uart_buf_cnt));
+        // RecievedSerialDataPrint(2, uart_buf_tmp, uart_buf_cnt);
         Serial.print("\r\n");
 
         strupr(uart_buf_tmp);
