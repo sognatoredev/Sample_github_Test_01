@@ -15,6 +15,8 @@
 SocketSendReportPacket_t makeReportPacket;
 ParseReceivedData_t parseReceivedData;
 
+typedef void ( * p_PacketPrintFuncArray ) ( ParseReceivedData_t * p_parserRxData );
+
 /* create a hardware timer */
 hw_timer_t * timer = NULL;
 volatile uint32_t timer1_count, timer1_count2 = 0;
@@ -301,6 +303,88 @@ ret_code_t MakeMainPacket (void)
     uint8_t shtm_humi[ SHTM_DATA_MAX ][ 2 ];
     #endif
 }
+
+void Print_PTpress ( ParseReceivedData_t * p_parserRxData )
+{
+    uint8_t i,j = 0;
+    /* sensor value */
+    /* PT press */
+    for (i = 0; i < 4; i++)
+    {
+        Serial.printf("pt press %d : 0x", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", p_parserRxData->packet.pt_press[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+}
+
+void Print_PTTemperature ( ParseReceivedData_t * p_parserRxData )
+{
+    uint8_t i,j = 0;
+    /* sensor value */
+    /* PT temperature */
+    for (i = 0; i < 4; i++)
+    {
+        Serial.printf("pt temperature %d : 0x", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", p_parserRxData->packet.pt_temperature[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+}
+
+void Print_SHTMTemperature ( ParseReceivedData_t * p_parserRxData )
+{
+    uint8_t i,j = 0;
+    /* sensor value */
+    /* SHTM temperature */
+    for (i = 0; i < 8; i++)
+    {
+        Serial.printf("shtm temperature %d : 0x", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", p_parserRxData->packet.shtm_temperature[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+}
+
+void Print_SHTMHumidity ( ParseReceivedData_t * p_parserRxData )
+{
+    uint8_t i,j = 0;
+    /* sensor value */
+    /* SHTM Humidity */
+    for (i = 0; i < 8; i++)
+    {
+        Serial.printf("shtm humidity %d : 0x", i);
+        for (uint8_t j = 0; j < 2; j++)
+        {
+            Serial.printf("%02X", p_parserRxData->packet.shtm_temperature[i][j]);
+        }
+        Serial.printf("\r\n");
+    }
+}
+
+ret_code_t Print_SensorParsingData ( ParseReceivedData_t * p_parserRxData )
+{
+    uint8_t i = 0;
+    p_PacketPrintFuncArray PacketPrintFuncArray[4] = { Print_PTpress
+                                                        , Print_PTTemperature
+                                                        , Print_SHTMTemperature
+                                                        , Print_SHTMHumidity 
+                                                        };
+    
+    for (i = 0; i < 4; i ++)
+    {
+        PacketPrintFuncArray[i](p_parserRxData);
+    }
+
+    return true;
+}
+
 // Test converter 01
 #if 1
 static void printParsingdata (ParseReceivedData_t * p_parserRxData)
@@ -346,47 +430,9 @@ static void printParsingdata (ParseReceivedData_t * p_parserRxData)
     Serial.printf("sensor state : ");
     Serial.printf("0x%02X%02X\r\n",
                     p_parserRxData->packet.sensor_state[0], p_parserRxData->packet.sensor_state[1]);
-    /* sensor value */
-    /* PT press */
-    for (i = 0; i < 4; i++)
-    {
-        Serial.printf("pt press %d : 0x", i);
-        for (uint8_t j = 0; j < 2; j++)
-        {
-            Serial.printf("%02X", p_parserRxData->packet.pt_press[i][j]);
-        }
-        Serial.printf("\r\n");
-    }
-    /* PT temperature */
-    for (i = 0; i < 4; i++)
-    {
-        Serial.printf("pt temperature %d : 0x", i);
-        for (uint8_t j = 0; j < 2; j++)
-        {
-            Serial.printf("%02X", p_parserRxData->packet.pt_temperature[i][j]);
-        }
-        Serial.printf("\r\n");
-    }
-    /* SHTM temperature */
-    for (i = 0; i < 8; i++)
-    {
-        Serial.printf("shtm temperature %d : 0x", i);
-        for (uint8_t j = 0; j < 2; j++)
-        {
-            Serial.printf("%02X", p_parserRxData->packet.shtm_temperature[i][j]);
-        }
-        Serial.printf("\r\n");
-    }
-    /* SHTM press */
-    for (i = 0; i < 8; i++)
-    {
-        Serial.printf("shtm humidity %d : 0x", i);
-        for (uint8_t j = 0; j < 2; j++)
-        {
-            Serial.printf("%02X", p_parserRxData->packet.shtm_humi[i][j]);
-        }
-        Serial.printf("\r\n");
-    }
+
+    /* Sensor part print */ 
+    Print_SensorParsingData(p_parserRxData);
 
     /* Footer */
     Serial.printf("\r\n[Packet Footer data]\r\ncrc16 : 0x%02X%02X\r\netx : 0x%02X\r\n",
