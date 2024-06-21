@@ -25,7 +25,7 @@ String httpRequestData;
 
 String uart_buf;
 char uart_buf_tmp[UART_BUF_MAX] = {0};
-uint8_t uart_buf_cnt = 0;
+volatile uint8_t uart_buf_cnt = 0;
 
 uint8_t ascii2hex_arr[UART_BUF_MAX] = { 0 };
 
@@ -301,159 +301,6 @@ ret_code_t MakeMainPacket (void)
     uint8_t shtm_humi[ SHTM_DATA_MAX ][ 2 ];
     #endif
 }
-
-#if 1
-ret_code_t parse_MainboardPacket ( ParseReceivedData_t * p_parserRxData, uint8_t * pData )
-{
-    uint8_t i = 0;
-    uint8_t j = 0;
-    uint16_t num = 0;
-
-    /* Header */
-    p_parserRxData->packet.stx = pData[num++];
-    p_parserRxData->packet.cmd_id = pData[num++];
-    p_parserRxData->packet.data_length = pData[num++];
-
-    /* Body */
-    /* Unique ID */
-    for (i = 0; i < 12; i++)
-    {
-        p_parserRxData->packet.unique_id[i] = pData[num++];
-    }
-    /* Board type */
-    p_parserRxData->packet.setboard_type[0] = pData[num++];
-    p_parserRxData->packet.setboard_type[1] = pData[num++];
-    /* Board id */
-    p_parserRxData->packet.setboard_id[0] = pData[num++];
-    p_parserRxData->packet.setboard_id[1] = pData[num++];
-    /* Sensor type */
-    p_parserRxData->packet.sensor_type_1[0] = pData[num++];
-    p_parserRxData->packet.sensor_type_1[1] = pData[num++];
-
-    p_parserRxData->packet.sensor_type_2[0] = pData[num++];
-    p_parserRxData->packet.sensor_type_2[1] = pData[num++];
-    /* Sensor boardinfo*/
-    p_parserRxData->packet.sensor_id[0] = pData[num++];
-    p_parserRxData->packet.sensor_id[1] = pData[num++];
-    p_parserRxData->packet.sensor_state[0] = pData[num++];
-    p_parserRxData->packet.sensor_state[1] = pData[num++];
-    /* sensor value */
-    for (i = 0; i < 4; i++)
-    {
-        for (j = 0; j < 2; j++)
-        {
-            p_parserRxData->packet.pt_press[i][j] = (uint8_t) pData[num++];
-        }
-    }
-
-    for (i = 0; i < 4; i++)
-    {
-        for (j = 0; j < 2; j++)
-        {
-            p_parserRxData->packet.pt_temperature[i][j] = (uint8_t) pData[num++];
-        }
-    }
-
-    for (i = 0; i < 8; i++)
-    {
-        for (j = 0; j < 2; j++)
-        {
-            p_parserRxData->packet.shtm_temperature[i][j] = (uint8_t) pData[num++];
-        }
-    }
-
-    for (i = 0; i < 8; i++)
-    {
-        for (j = 0; j < 2; j++)
-        {
-            p_parserRxData->packet.shtm_humi[i][j] = (uint8_t) pData[num++];
-        }
-    }
-
-    /* Footer */
-    p_parserRxData->packet.crc16[0] = pData[num++];
-    p_parserRxData->packet.crc16[1] = pData[num++];
-    p_parserRxData->packet.etx = pData[num++];
-
-    return num; // 50
-}
-#else
-ret_code_t parse_MainboardPacket ( uint8_t * pData )
-{
-    uint8_t i = 0;
-    uint8_t j = 0;
-    uint16_t num = 0;
-
-    /* Header */
-    parseReceivedData.packet.stx = pData[num++];
-    parseReceivedData.packet.cmd_id = pData[num++];
-    parseReceivedData.packet.data_length = pData[num++];
-
-    /* Body */
-    /* Unique ID */
-    for (i = 0; i < 12; i++)
-    {
-        parseReceivedData.packet.unique_id[i] = pData[num++];
-    }
-    /* Board type */
-    parseReceivedData.packet.setboard_type[0] = pData[num++];
-    parseReceivedData.packet.setboard_type[1] = pData[num++];
-    /* Board id */
-    parseReceivedData.packet.setboard_id[0] = pData[num++];
-    parseReceivedData.packet.setboard_id[1] = pData[num++];
-    /* Sensor type */
-    parseReceivedData.packet.sensor_type_1[0] = pData[num++];
-    parseReceivedData.packet.sensor_type_1[1] = pData[num++];
-
-    parseReceivedData.packet.sensor_type_2[0] = pData[num++];
-    parseReceivedData.packet.sensor_type_2[1] = pData[num++];
-    /* Sensor boardinfo*/
-    parseReceivedData.packet.sensor_id[0] = pData[num++];
-    parseReceivedData.packet.sensor_id[1] = pData[num++];
-    parseReceivedData.packet.sensor_state[0] = pData[num++];
-    parseReceivedData.packet.sensor_state[1] = pData[num++];
-    /* sensor value */
-    for (i = 0; i < 4; i++)
-    {
-        for (j = 0; j < 2; j++)
-        {
-            parseReceivedData.packet.pt_press[i][j] = (uint8_t) pData[num++];
-        }
-    }
-
-    for (i = 0; i < 4; i++)
-    {
-        for (j = 0; j < 2; j++)
-        {
-            parseReceivedData.packet.pt_temperature[i][j] = (uint8_t) pData[num++];
-        }
-    }
-
-    for (i = 0; i < 8; i++)
-    {
-        for (j = 0; j < 2; j++)
-        {
-            parseReceivedData.packet.shtm_temperature[i][j] = (uint8_t) pData[num++];
-        }
-    }
-
-    for (i = 0; i < 8; i++)
-    {
-        for (j = 0; j < 2; j++)
-        {
-            parseReceivedData.packet.shtm_humi[i][j] = (uint8_t) pData[num++];
-        }
-    }
-
-    /* Footer */
-    parseReceivedData.packet.crc16[0] = pData[num++];
-    parseReceivedData.packet.crc16[1] = pData[num++];
-    parseReceivedData.packet.etx = pData[num++];
-
-    return num; // 50
-}
-#endif
-
 // Test converter 01
 #if 1
 static void printParsingdata (ParseReceivedData_t * p_parserRxData)
@@ -855,6 +702,159 @@ void printParsingdata (void)
 }
 #endif
 
+#if 1
+ret_code_t parse_MainboardPacket ( ParseReceivedData_t * p_parserRxData, uint8_t * pData )
+{
+    uint8_t i = 0;
+    uint8_t j = 0;
+    uint16_t num = 0;
+
+    /* Header */
+    p_parserRxData->packet.stx = pData[num++];
+    p_parserRxData->packet.cmd_id = pData[num++];
+    p_parserRxData->packet.data_length = pData[num++];
+
+    /* Body */
+    /* Unique ID */
+    for (i = 0; i < 12; i++)
+    {
+        p_parserRxData->packet.unique_id[i] = pData[num++];
+    }
+    /* Board type */
+    p_parserRxData->packet.setboard_type[0] = pData[num++];
+    p_parserRxData->packet.setboard_type[1] = pData[num++];
+    /* Board id */
+    p_parserRxData->packet.setboard_id[0] = pData[num++];
+    p_parserRxData->packet.setboard_id[1] = pData[num++];
+    /* Sensor type */
+    p_parserRxData->packet.sensor_type_1[0] = pData[num++];
+    p_parserRxData->packet.sensor_type_1[1] = pData[num++];
+
+    p_parserRxData->packet.sensor_type_2[0] = pData[num++];
+    p_parserRxData->packet.sensor_type_2[1] = pData[num++];
+    /* Sensor boardinfo*/
+    p_parserRxData->packet.sensor_id[0] = pData[num++];
+    p_parserRxData->packet.sensor_id[1] = pData[num++];
+    p_parserRxData->packet.sensor_state[0] = pData[num++];
+    p_parserRxData->packet.sensor_state[1] = pData[num++];
+    /* sensor value */
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            p_parserRxData->packet.pt_press[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            p_parserRxData->packet.pt_temperature[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            p_parserRxData->packet.shtm_temperature[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            p_parserRxData->packet.shtm_humi[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    /* Footer */
+    p_parserRxData->packet.crc16[0] = pData[num++];
+    p_parserRxData->packet.crc16[1] = pData[num++];
+    p_parserRxData->packet.etx = pData[num++];
+
+    printParsingdata(p_parserRxData);
+
+    return num; // 50
+}
+#else
+ret_code_t parse_MainboardPacket ( uint8_t * pData )
+{
+    uint8_t i = 0;
+    uint8_t j = 0;
+    uint16_t num = 0;
+
+    /* Header */
+    parseReceivedData.packet.stx = pData[num++];
+    parseReceivedData.packet.cmd_id = pData[num++];
+    parseReceivedData.packet.data_length = pData[num++];
+
+    /* Body */
+    /* Unique ID */
+    for (i = 0; i < 12; i++)
+    {
+        parseReceivedData.packet.unique_id[i] = pData[num++];
+    }
+    /* Board type */
+    parseReceivedData.packet.setboard_type[0] = pData[num++];
+    parseReceivedData.packet.setboard_type[1] = pData[num++];
+    /* Board id */
+    parseReceivedData.packet.setboard_id[0] = pData[num++];
+    parseReceivedData.packet.setboard_id[1] = pData[num++];
+    /* Sensor type */
+    parseReceivedData.packet.sensor_type_1[0] = pData[num++];
+    parseReceivedData.packet.sensor_type_1[1] = pData[num++];
+
+    parseReceivedData.packet.sensor_type_2[0] = pData[num++];
+    parseReceivedData.packet.sensor_type_2[1] = pData[num++];
+    /* Sensor boardinfo*/
+    parseReceivedData.packet.sensor_id[0] = pData[num++];
+    parseReceivedData.packet.sensor_id[1] = pData[num++];
+    parseReceivedData.packet.sensor_state[0] = pData[num++];
+    parseReceivedData.packet.sensor_state[1] = pData[num++];
+    /* sensor value */
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            parseReceivedData.packet.pt_press[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            parseReceivedData.packet.pt_temperature[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            parseReceivedData.packet.shtm_temperature[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    for (i = 0; i < 8; i++)
+    {
+        for (j = 0; j < 2; j++)
+        {
+            parseReceivedData.packet.shtm_humi[i][j] = (uint8_t) pData[num++];
+        }
+    }
+
+    /* Footer */
+    parseReceivedData.packet.crc16[0] = pData[num++];
+    parseReceivedData.packet.crc16[1] = pData[num++];
+    parseReceivedData.packet.etx = pData[num++];
+
+    return num; // 50
+}
+#endif
 
 
 String getTestData()
@@ -938,7 +938,7 @@ String getTestData()
 
 void StateLED_Process (void)
 {
-    if ( timer1_count2 >= 1000 )
+    if ( timer1_count >= 1000 )
     {
         timer1_count = 0;
         digitalWrite(LED_BLUE, !digitalRead(LED_BLUE));
@@ -957,7 +957,7 @@ void WiFi_Process (void)
     
     if ( timer1_count2 >= 1000 )
     {
-        Serial.printf("Timer 1 Count Value : %d\r\n", timer1_count);
+        Serial.printf("Timer 1 Count Value : %d\r\n", timer1_count2);
 
         // Serial.print("Timer 1 Count Value : ");
         // Serial.println(timer1_count);
@@ -1085,7 +1085,7 @@ void Debug_Process (void)
         }
 
         Serial.printf("parsing data length : %d\r\n", parse_MainboardPacket(&parseReceivedData, ascii2hex_arr));
-        printParsingdata(&parseReceivedData);
+        //printParsingdata(&parseReceivedData);
     }
     #else
     if(Serial.available() > 0)
