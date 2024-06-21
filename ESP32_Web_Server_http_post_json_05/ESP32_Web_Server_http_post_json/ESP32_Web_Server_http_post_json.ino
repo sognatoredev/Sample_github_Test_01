@@ -11,7 +11,6 @@
 #define DEBUG
 #endif
 
-
 // DataParsing checkout branch
 // Test branch 01
 SocketSendReportPacket_t makeReportPacket;
@@ -118,8 +117,12 @@ unsigned int ascii_to_hex(const char* str, size_t size, uint8_t* hex)
         cnt = i;
         //9보다 큰 경우 : 알파벳 문자 'A' 이상인 문자로, 'A'를 빼고 10을 더함.
         //9이하인 경우 : 숫자 입력으로 '0'을 빼면 실제 값이 구해짐.
-        high = (str[i] > '9') ? str[i] - 'A' + 10 : str[i] - '0';
-        low = (str[i + 1] > '9') ? str[i + 1] - 'A' + 10 : str[i + 1] - '0';
+        high = (str[i] > '9') ?
+                str[i] - 'A' + 10 :
+                str[i] - '0';
+        low = (str[i + 1] > '9') ? 
+                str[i + 1] - 'A' + 10 :
+                str[i + 1] - '0';
         //high 4비트, low 4비트이므로, 1바이트를 만들어주기 위해 high를 왼쪽으로 4비트 shift
         //이후 OR(|)연산으로 합
         hex[h] = (high << 4) | low;
@@ -370,14 +373,15 @@ void Print_SHTMHumidity ( ParseReceivedData_t * p_parserRxData )
     }
 }
 
+/* print Sensor Parsing Data */
 ret_code_t Print_SensorParsingData ( ParseReceivedData_t * p_parserRxData )
 {
     uint8_t i = 0;
     p_PacketPrintFuncArray PacketPrintFuncArray[4] = { Print_PTpress
-                                                        , Print_PTTemperature
-                                                        , Print_SHTMTemperature
-                                                        , Print_SHTMHumidity 
-                                                        };
+                                                    , Print_PTTemperature
+                                                    , Print_SHTMTemperature
+                                                    , Print_SHTMHumidity 
+                                                    };
     
     for (i = 0; i < 4; i ++)
     {
