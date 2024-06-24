@@ -374,7 +374,7 @@ void Print_SHTMHumidity ( ParseReceivedData_t * p_parserRxData )
 }
 
 /* print Sensor Parsing Data */
-ret_code_t Print_SensorParsingData ( ParseReceivedData_t * p_parserRxData )
+void Print_SensorParsingData ( ParseReceivedData_t * p_parserRxData )
 {
     uint8_t i = 0;
     p_PacketPrintFuncArray PacketPrintFuncArray[4] = { Print_PTpress
@@ -388,7 +388,7 @@ ret_code_t Print_SensorParsingData ( ParseReceivedData_t * p_parserRxData )
         PacketPrintFuncArray[i](p_parserRxData);
     }
 
-    return true;
+    //return true;
 }
 
 // Test converter 01
