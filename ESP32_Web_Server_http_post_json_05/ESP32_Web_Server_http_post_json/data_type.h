@@ -37,7 +37,7 @@ typedef uint32_t ret_code_t;
 #define SENSOR_STATE_MAX                    8
 #define SOCKET_SEND_REPORT_PACKET_LENGTH    156  // Server로 던질 데이터 길이에 맞게 수정 필요함.
 
-/* Socket packet stx, ext */
+/* Socket packet stx, etx */
 #define PACKET_DATA_STX                     0xFF
 #define PACKET_DATA_ETX                     0xFE
 /* Socket send packet command id */
