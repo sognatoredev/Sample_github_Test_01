@@ -16,6 +16,7 @@
 SocketSendReportPacket_t makeReportPacket;
 ParseReceivedData_t parseReceivedData;
 
+/* Type define */
 typedef void ( * p_PacketPrintFuncArray ) ( ParseReceivedData_t * p_parserRxData );
 
 /* create a hardware timer */
@@ -26,6 +27,7 @@ portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
 uint8_t MakePacketData = 0x00;
 String httpRequestData;
 
+/* Uart buffer define */
 String uart_buf;
 char uart_buf_tmp[UART_BUF_MAX] = {0};
 volatile uint8_t uart_buf_cnt = 0;
@@ -382,13 +384,11 @@ void Print_SensorParsingData ( ParseReceivedData_t * p_parserRxData )
                                                     , Print_SHTMTemperature
                                                     , Print_SHTMHumidity 
                                                     };
-    
+
     for (i = 0; i < 4; i ++)
     {
         PacketPrintFuncArray[i](p_parserRxData);
     }
-
-    //return true;
 }
 
 // Test converter 01
