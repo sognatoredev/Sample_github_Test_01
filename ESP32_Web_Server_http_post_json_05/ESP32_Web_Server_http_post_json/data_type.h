@@ -31,8 +31,8 @@ typedef uint32_t ret_code_t;
 #define PACKET_FOOTER_START                 PACKET_BODY_END + PACKET_FOOTER_LENGTH
 #define PACKET_FOOTER_END                   PACKET_FOOTER_START + PACKET_FOOTER_LENGTH
 
-#define PT_DATA_MAX                         8   // 4 x 2 byte.
-#define SHTM_DATA_MAX                       16  // 8 x 2 byte.
+#define PT_DATA_MAX                         4   // 4 x 2 byte.
+#define SHTM_DATA_MAX                       8  // 8 x 2 byte.
 
 #define SENSOR_STATE_MAX                    8
 #define SOCKET_SEND_REPORT_PACKET_LENGTH    156  // Server로 던질 데이터 길이에 맞게 수정 필요함.
@@ -137,7 +137,7 @@ ProjectExtInfo_t ext_project_info[ 20 ] =
 // } BoardSetType_t;
 
 // /* Project setting info */
-// typedef struct
+// typedef enum ProjectSetType
 // {
 //     A2Z_SD = 0,
 //     DAECHANG,
