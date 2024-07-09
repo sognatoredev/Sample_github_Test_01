@@ -18,6 +18,7 @@ ParseReceivedData_t parseReceivedData;
 
 /* Type define */
 typedef void ( * p_PacketPrintFuncArray ) ( ParseReceivedData_t * p_parserRxData );
+extern void Print_SensorParsingData ( ParseReceivedData_t * p_parserRxData );
 
 /* create a hardware timer */
 hw_timer_t * timer = NULL;
@@ -1007,7 +1008,7 @@ void WiFi_Process (void)
         MakePacketData = 0x00;
     }
     
-    if ( timer1_count2 >= 1000 )
+    if ( timer1_count2 >= 500 )
     {
         Serial.printf("Timer 1 Count Value : %d\r\n", timer1_count2);
 
