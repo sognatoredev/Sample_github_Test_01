@@ -37,7 +37,9 @@ uint8_t ascii2hex_arr[UART_BUF_MAX] = { 0 };
 
 const char* ssid = "scs_tms";// "sw_epc";
 const char* password = "scstms0903";
-const char* serverName = "http://192.168.219.241:9983/api-docs/"; // 웹서버주소
+// const char* serverName = "http://192.168.219.241:9983/api-docs/"; // 웹서버주소
+// const char* serverName = "http://192.168.219.241:9983"; // 웹서버주소
+const char* serverName = "http://192.168.219.241:9983/api/tms-data"; // 웹서버주소
 int value;
 int sensor_number = 12;  // 임의의 숫자를 넣어주었다. 
 int analog = 25;  // esp에 연결된 핀 번호
@@ -166,9 +168,9 @@ void setJsonObject_PTSensor (void)
 
     for(i=1; i < PT_DATA_MAX+1; i++)
     {
-        str1 = "PT_"    + String(i) + "_Press:";
+        str1 = "PT_"    + String(i) + "_Press";
         doc[str1] = ""  + String(i) + "";
-        str2 = "PT_"    + String(i) + "_Temper:";
+        str2 = "PT_"    + String(i) + "_Temper";
         doc[str2] = ""  + String(i) + "";
     }
 }
@@ -181,9 +183,9 @@ void setJsonObject_SHTMSensor (void)
 
     for(i=1; i < SHTM_DATA_MAX+1; i++)
     {
-        str1 = "SHTM_" + String(i) + "_Temper:";
+        str1 = "SHTM_" + String(i) + "_Temper";
         doc[str1] = "" + String(i) + "";
-        str2 = "SHTM_" + String(i) + "_Humi:";
+        str2 = "SHTM_" + String(i) + "_Humi";
         doc[str2] = "" + String(i) + "";
     }
 }
@@ -1008,7 +1010,7 @@ void WiFi_Process (void)
         MakePacketData = 0x00;
     }
     
-    if ( timer1_count2 >= 500 )
+    if ( timer1_count2 >= 1000 )
     {
         Serial.printf("Timer 1 Count Value : %d\r\n", timer1_count2);
 
