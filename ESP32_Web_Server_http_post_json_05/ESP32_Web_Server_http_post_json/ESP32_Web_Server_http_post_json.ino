@@ -37,9 +37,10 @@ uint8_t ascii2hex_arr[UART_BUF_MAX] = { 0 };
 
 const char* ssid = "scs_tms";// "sw_epc";
 const char* password = "scstms0903";
-// const char* serverName = "http://192.168.219.241:9983/api-docs/"; // 웹서버주소
-// const char* serverName = "http://192.168.219.241:9983"; // 웹서버주소
-const char* serverName = "http://192.168.219.241:9983/api/tms-data"; // 웹서버주소
+// const char* serverName = "http://192.168.219.241:9983/api-docs/"; // 웹서버주소 200
+// const char* serverName = "http://192.168.219.241:9983"; // 웹서버주소 Error
+// const char* serverName = "http://192.168.219.241:9983/api-docs/#/api/post_tms_data"; // 웹서버주소 200
+const char* serverName = "http://192.168.219.241:9983/api/tms-data"; // 웹서버주소 200
 int value;
 int sensor_number = 12;  // 임의의 숫자를 넣어주었다. 
 int analog = 25;  // esp에 연결된 핀 번호
@@ -54,7 +55,7 @@ IPAddress hostIp(192, 168, 219, 241);  //웹서버의 ip 주소
 int SERVER_PORT = 9983;  // 웹서버 포트 번호
 WiFiClient client;
 
-StaticJsonDocument <500> doc;
+StaticJsonDocument <2000> doc; // doc byte 설정.
 
 #ifdef DEBUG
 #define CONCAT_3(p1, p2, p3)  CONCAT_3_(p1, p2, p3)
@@ -160,37 +161,98 @@ void printProjectInfo (void)
                 ext_project_info[ 4 ].id, ext_project_info[ 7 ].name, ext_project_info[ 2 ].testnum);
 }
 
-/*Test Data 1*/
+/*Test Board Info Set*/
+void setJsonObject_BoardInfo (void)
+{
+    // uint8_t i = 0;
+    // uint8_t str1, str2;
+
+    // str1 = board_id;
+    // str2 = project_id;
+
+    doc["uniqueId_0"] = "1";
+    doc["uniqueId_1"] = "2";
+    doc["uniqueId_2"] = "3";
+    doc["type"] = "4";
+    doc["boardId"] = "5";
+    doc["title"] = "6";
+    doc["description"] = "7";
+}
+
+/* Test Data 1 */
 void setJsonObject_PTSensor (void)
 {
     uint8_t i = 0;
     String str1, str2;
 
-    for(i=1; i < PT_DATA_MAX+1; i++)
+    for(i = 0; i < PT_DATA_MAX; i++)
     {
         str1 = "PT_"    + String(i) + "_Press";
-        doc[str1] = ""  + String(i) + "";
+        // doc[str1] = ""  + String(i) + "";
+        doc[str1] = i;
         str2 = "PT_"    + String(i) + "_Temper";
-        doc[str2] = ""  + String(i) + "";
+        // doc[str2] = ""  + String(i) + "";
+        doc[str2] = i;
     }
 }
- 
-/*Test Data 2*/
-void setJsonObject_SHTMSensor (void)
+
+/* Test Data 2 */
+void setJsonObject_SHTSensor_Local (void)
 {
     uint8_t i = 0;
     String str1, str2;
 
-    for(i=1; i < SHTM_DATA_MAX+1; i++)
+    for(i = 0; i < SHTM_DATA_MAX; i++)
     {
-        str1 = "SHTM_" + String(i) + "_Temper";
-        doc[str1] = "" + String(i) + "";
-        str2 = "SHTM_" + String(i) + "_Humi";
-        doc[str2] = "" + String(i) + "";
+        str1 = "SHTL_" + String(i) + "_Temper";
+        // doc[str1] = "" + String(i) + "";
+        doc[str1] = i;
+        str2 = "SHTL_" + String(i) + "_Humi";
+        // doc[str2] = "" + String(i) + "";
+        doc[str2] = i;
     }
 }
 
+/* Test Data 3 */
+void setJsonObject_SHTSensor_Remote (void)
+{
+    uint8_t i = 0;
+    String str1, str2;
+
+    for(i = 0; i < SHTM_DATA_MAX; i++)
+    {
+        str1 = "SHTR_" + String(i) + "_Temper";
+        doc[str1] = i;
+        // doc[str1] = "" + String(i) + "";
+        str2 = "SHTR_" + String(i) + "_Humi";
+        doc[str2] = i;
+        // doc[str2] = "" + String(i) + "";
+    }
+}
+
+/*Test ETC Data Set*/
+void setJsonObject_actuator (void)
+{
+    // uint8_t i = 0;
+    // uint8_t str1, str2;
+
+    // str1 = board_id;
+    // str2 = project_id;
+
+    doc["comp"] = 1;
+    doc["comp_per"] = 2;
+    doc["exv_lin"] = 3;
+    doc["exv_dac"] = 4;
+    doc["pump"] = 5;
+    doc["cfan"] = 6;
+    doc["efan"] = 7;
+    doc["heater"] = 8;
+    doc["subcool"] = 9;
+    doc["superheat"] = 10;
+}
+
 /*Test Board Info Set*/
+/*
 void setJsonObject_BoardInfo (BoardSetType_t board_id, ProjectSetType_t project_id)
 {
     uint8_t i = 0;
@@ -202,6 +264,7 @@ void setJsonObject_BoardInfo (BoardSetType_t board_id, ProjectSetType_t project_
     doc["board_id"] = "" + String(str1) + "";
     doc["project"] = "" + String(str2) + "";
 }
+*/
 
 void printWifiData() 
 {
@@ -956,9 +1019,12 @@ String getTestData()
     printCurrentNet(); 
     printProjectInfo();
 
-    setJsonObject_BoardInfo(SLAVE_1, INCELL);
+    // setJsonObject_BoardInfo(SLAVE_1, INCELL);
+    setJsonObject_BoardInfo();
     setJsonObject_PTSensor(); // 임시 테스트 Json 데이터 생성
-    setJsonObject_SHTMSensor(); // 임시 테스트 Json 데이터 생성
+    setJsonObject_SHTSensor_Local(); // 임시 테스트 Json 데이터 생성
+    setJsonObject_SHTSensor_Remote(); // 임시 테스트 Json 데이터 생성
+    setJsonObject_actuator();
     
     // doc["PT_1_Press"] = "1";
     // doc["PT_1_Temper"] = "1";
@@ -986,7 +1052,8 @@ String getTestData()
     // doc["SHTM_8_Temper"] = "8";
     // doc["SHTM_8_Humi"] = "8";
 
-    serializeJsonPretty(doc, jsondata);
+    // serializeJsonPretty(doc, jsondata);
+    serializeJsonPretty(root, jsondata);
 
     return (jsondata);
 } 
@@ -1012,6 +1079,8 @@ void WiFi_Process (void)
     
     if ( timer1_count2 >= 1000 )
     {
+        // MakePacketData = 0x01; // 임시 테스트용 
+
         Serial.printf("Timer 1 Count Value : %d\r\n", timer1_count2);
 
         // Serial.print("Timer 1 Count Value : ");
@@ -1026,6 +1095,7 @@ void WiFi_Process (void)
         /* Critical senction exit */
         portEXIT_CRITICAL(&timerMux);
 
+        #if 1
         if(WiFi.status()== WL_CONNECTED)
         {   //Check WiFi connection status
             //value = analogRead(analog); // esp32에서 읽은 co2 값을 value에 저장한다.
@@ -1033,20 +1103,26 @@ void WiFi_Process (void)
         
             //****************
             http.begin(serverName);  //Specify destination for HTTP request    "http://00.000.00.00:5000/"
-            http.addHeader("Content-Type",  "apsplication/json");   //Specify content-type header,  Json형식의 타입이다.
+            http.addHeader("Content-Type",  "application/json");   //Specify content-type header,  Json형식의 타입이다.
             //****************
             // String httpRequestData = getTestData();
             // Serial.println(httpRequestData); //시리얼 모니터에 Json 형식의 데이터를 찍어준다.
             //****************
+
+            // String parsedJsonToString;
+
+            // serializeJson(doc, parsedJsonToString);
+
+            // int httpResponseCode = http.POST(parsedJsonToString);   //Send the actual POST request
             int httpResponseCode = http.POST(httpRequestData);   //Send the actual POST request
         
             if(httpResponseCode>0)
             { 
                 // 잘 전송되었으면
-                //String response = http.getString();                       //Get the response to the request
+                String response = http.getString();                       //Get the response to the request
                 
                 Serial.println(httpResponseCode);   //Print return code
-                // Serial.println(response);           //Print request answer
+                Serial.println(response);           //Print request answer
             }
             else
             {
@@ -1061,7 +1137,7 @@ void WiFi_Process (void)
         {
             Serial.println("Error in WiFi connection");   
         }
-        
+        #endif
         // LED Blue Pin GPIO2 Toggle.
         // digitalWrite(LED_BLUE, !digitalRead(LED_BLUE));
         // delay(30000000);  //Send a request every 10 seconds
