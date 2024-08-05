@@ -83,3 +83,13 @@ void LED_Process (void)
     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 }
 */
+
+/*
+void LED_Process (void)
+{
+    HAL_Delay(500);
+    HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
+    HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+}
+*/
