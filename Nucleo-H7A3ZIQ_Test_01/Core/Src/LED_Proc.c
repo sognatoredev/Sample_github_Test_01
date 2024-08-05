@@ -19,9 +19,9 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "LED_Proc.h"
+#include "led_proc.h"
 
-
+#if 0
 void LED_Process (void)
 {
     HAL_Delay(500);
@@ -29,3 +29,17 @@ void LED_Process (void)
     HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 }
+#else
+void LED_Process (void)
+{
+  if (TIM1_CNT > 499)
+  {
+    TIM1_CNT = 0;
+
+    HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
+    HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
+    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+  }
+}
+#endif
+

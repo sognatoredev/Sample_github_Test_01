@@ -60,8 +60,8 @@ all: main-build
 main-build: Nucleo-H7A3ZIQ_Test_01.elf secondary-outputs
 
 # Tool invocations
-Nucleo-H7A3ZIQ_Test_01.elf Nucleo-H7A3ZIQ_Test_01.map: $(OBJS) $(USER_OBJS) C:\000.\ Work\001.\ FW\Git_ESP32_Server_http_json\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_ESP32_Server_http_json\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Nucleo-H7A3ZIQ_Test_01.elf Nucleo-H7A3ZIQ_Test_01.map: $(OBJS) $(USER_OBJS) C:\000.\ Work\001.\ FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
