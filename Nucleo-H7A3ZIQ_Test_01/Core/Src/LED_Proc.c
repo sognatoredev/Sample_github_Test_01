@@ -28,11 +28,4 @@ void LED_Process (void)
     HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
     HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-
-    /*Configure GPIO pin Output Level */
-    //HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin, GPIO_PIN_RESET);
-
-    /*Configure GPIO pin Output Level */
-    //HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-
 }
