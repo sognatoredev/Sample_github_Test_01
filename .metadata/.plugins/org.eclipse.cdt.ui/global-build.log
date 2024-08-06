@@ -2381,3 +2381,142 @@ arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf
   27748	    124	   2924	  30796	   784c	Nucleo-H7A3ZIQ_Test_01.elf
 Finished building: default.size.stdout
  
+11:51:17 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  24696	     24	   1880	  26600	   67e8	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+11:51:19 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24696	     24	   1880	  26600	   67e8	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+13:08:45 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/button_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/button_proc.d" -MT"Core/Src/button_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/button_proc.o"
+../Core/Src/button_proc.c: In function 'Button_Process':
+../Core/Src/button_proc.c:36:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   36 |         sprintf(uart3_tx_buf, "Button Toggle.\r\n");
+      |                 ^~~~~~~~~~~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Inc/button_proc.h:15,
+                 from ../Core/Src/button_proc.c:14:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/button_proc.c:37:62: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   37 |         HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                              ^~~~~~
+../Core/Src/button_proc.c:37:62: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/button_proc.c:15:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   14 | #include "button_proc.h"
+  +++ |+#include <string.h>
+   15 | 
+../Core/Src/button_proc.c:37:69: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   37 |         HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                     ^~~~~~~~~~~~
+      |                                                                     |
+      |                                                                     uint8_t * {aka unsigned char *}
+../Core/Src/button_proc.c:37:69: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/button_proc.c:32:8: warning: 'prvbtnstate' is used uninitialized in this function [-Wuninitialized]
+   32 |     if (prvbtnstate != currentlybtnstate)
+      |        ^
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  24696	     24	   1880	  26600	   67e8	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+13:08:47 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24696	     24	   1880	  26600	   67e8	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+13:09:02 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  27760	    124	   2924	  30808	   7858	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+13:09:08 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27760	    124	   2924	  30808	   7858	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+13:10:51 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/button_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/button_proc.d" -MT"Core/Src/button_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/button_proc.o"
+../Core/Src/button_proc.c: In function 'Button_Process':
+../Core/Src/button_proc.c:31:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   31 |         sprintf(uart3_tx_buf, "Button Toggle.\r\n");
+      |                 ^~~~~~~~~~~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Inc/button_proc.h:15,
+                 from ../Core/Src/button_proc.c:14:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/button_proc.c:32:62: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   32 |         HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                              ^~~~~~
+../Core/Src/button_proc.c:32:62: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/button_proc.c:15:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   14 | #include "button_proc.h"
+  +++ |+#include <string.h>
+   15 | 
+../Core/Src/button_proc.c:32:69: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   32 |         HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                     ^~~~~~~~~~~~
+      |                                                                     |
+      |                                                                     uint8_t * {aka unsigned char *}
+../Core/Src/button_proc.c:32:69: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  27768	    124	   2924	  30816	   7860	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+13:10:56 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27768	    124	   2924	  30816	   7860	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
