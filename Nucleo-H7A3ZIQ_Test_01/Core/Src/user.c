@@ -42,6 +42,49 @@ uint8_t uart3_tx_buf[UART3_BUFFER_LENGTH] = {0};
 /*******************************************************************************
  * PUBLIC FUNCTION DEFINITIONS
  *******************************************************************************/
+/* Display Boot Message */
+void BootMessagePrint (void)
+{
+    sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, " Project Name        : %s\r\n", PROJECT_NAME );
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, " - HW VERSION        : %s\r\n", STR_HW_VER );
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, " - FW VERSION        : %s\r\n", STR_FW_VER );
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, " - BUILD TIME        : %s, %s\r\n", __DATE__, __TIME__ );
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+}
+
+/* Display Clcok Source Message */
+void GetClockSourcePrint (void)
+{
+    sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, " - SYSTEM Clock Frequency        : %lu MHz\r\n", (HAL_RCC_GetSysClockFreq() /1000000));
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, " - HCLK Clock   Frequency        : %lu MHz\r\n", (HAL_RCC_GetHCLKFreq() / 1000000));
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, " - PCLK1 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK1Freq() / 1000000));
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, " - PCLK2 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK2Freq() / 1000000));
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+
+    sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+    HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+}
 
 
 /*******************************************************************************

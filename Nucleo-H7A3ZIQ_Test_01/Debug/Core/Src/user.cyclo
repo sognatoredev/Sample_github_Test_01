@@ -1,0 +1,2 @@
+user.c:46:6:BootMessagePrint	1
+user.c:68:6:GetClockSourcePrint	1

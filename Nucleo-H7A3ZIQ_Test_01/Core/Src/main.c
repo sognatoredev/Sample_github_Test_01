@@ -100,6 +100,8 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_Base_Start_IT(&htim8);
 
+  BootMessagePrint();
+  GetClockSourcePrint();
   /* USER CODE END 2 */
 
   /* Infinite loop */
