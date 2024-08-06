@@ -21,7 +21,8 @@
 /*---- context ---------------------------------------------------------------*/
 /*---- function prototypes ---------------------------------------------------*/
 /*---- data declarations -----------------------------------------------------*/
-uint32_t TIM1_CNT = 0;
+uint32_t TIM1_CNT = 0; // 1ms period Timer1 Counter.
+uint32_t TIM2_CNT = 0; // 100ms period Timer2 Counter.
 
 /*******************************************************************************
  * PRIVATE DECLARATIONS            Defined here, used elsewhere

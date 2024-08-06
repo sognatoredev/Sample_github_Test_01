@@ -10,6 +10,7 @@ extern "C" {
 
 
 extern uint32_t TIM1_CNT;
+extern uint32_t TIM2_CNT;
 
 #ifdef __cplusplus
 }
