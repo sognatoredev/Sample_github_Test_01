@@ -1,6 +1,7 @@
 
-#ifndef __LED_PROC_H__
-#define __LED_PROC_H__
+
+#ifndef __BUTTON_PROC_H__
+#define __BUTTON_PROC_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -10,6 +11,7 @@ extern "C" {
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
+#include "usart.h"
 #include "user.h"
 /* USER CODE END Includes */
 
@@ -19,11 +21,11 @@ extern "C" {
 
 
 /* USER CODE BEGIN Prototypes */
-extern void LED_Process (void);
+extern void Button_Process (void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
 }
 #endif
-#endif /*__ GPIO_H__ */
+#endif /*__BUTTON_PROC_H__ */
 

@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "led_proc.h": "c"
+        "led_proc.h": "c",
+        "user.h": "c"
     }
 }

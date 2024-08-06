@@ -9,6 +9,8 @@
 /*---- standard files --------------------------------------------------------*/
 #include "user.h"
 
+
+
 /*******************************************************************************
  * EXTERNAL REFERENCES             NOTE: only use if not available in header file
  *******************************************************************************/
@@ -21,8 +23,14 @@
 /*---- context ---------------------------------------------------------------*/
 /*---- function prototypes ---------------------------------------------------*/
 /*---- data declarations -----------------------------------------------------*/
+#define UART3_BUFFER_LENGTH 1024
+
 uint32_t TIM1_CNT = 0; // 1ms period Timer1 Counter.
 uint32_t TIM2_CNT = 0; // 100ms period Timer2 Counter.
+
+uint8_t uart3_rx_buf[UART3_BUFFER_LENGTH] = {0};
+uint8_t uart3_tx_buf[UART3_BUFFER_LENGTH] = {0};
+
 
 /*******************************************************************************
  * PRIVATE DECLARATIONS            Defined here, used elsewhere

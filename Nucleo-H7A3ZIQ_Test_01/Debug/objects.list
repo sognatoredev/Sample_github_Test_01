@@ -1,5 +1,6 @@
-"./Core/Src/LED_Proc.o"
+"./Core/Src/button_proc.o"
 "./Core/Src/gpio.o"
+"./Core/Src/led_proc.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32h7xx_hal_msp.o"
 "./Core/Src/stm32h7xx_it.o"

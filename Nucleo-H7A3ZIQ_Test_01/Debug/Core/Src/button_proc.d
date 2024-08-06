@@ -1,5 +1,6 @@
-Core/Src/led_proc.o: ../Core/Src/led_proc.c ../Core/Inc/led_proc.h \
- ../Core/Inc/main.h ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
+Core/Src/button_proc.o: ../Core/Src/button_proc.c \
+ ../Core/Inc/button_proc.h ../Core/Inc/main.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -31,8 +32,8 @@ Core/Src/led_proc.o: ../Core/Src/led_proc.c ../Core/Inc/led_proc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Core/Inc/user.h
-../Core/Inc/led_proc.h:
+ ../Core/Inc/usart.h ../Core/Inc/user.h
+../Core/Inc/button_proc.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -66,4 +67,5 @@ Core/Src/led_proc.o: ../Core/Src/led_proc.c ../Core/Inc/led_proc.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
+../Core/Inc/usart.h:
 ../Core/Inc/user.h:

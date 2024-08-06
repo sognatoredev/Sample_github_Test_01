@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "led_proc.h"
+#include "button_proc.h"
 #include "user.h"
 /* USER CODE END Includes */
 
@@ -104,6 +105,7 @@ int main(void)
   while (1)
   {
     LED_Process();
+    Button_Process();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
