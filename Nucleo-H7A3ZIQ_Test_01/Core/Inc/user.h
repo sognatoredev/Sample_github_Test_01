@@ -12,6 +12,7 @@ extern "C" {
 
 extern uint32_t TIM1_CNT;
 extern uint32_t TIM2_CNT;
+extern uint32_t TIM8_CNT;
 
 extern uint8_t uart3_rx_buf[];
 extern uint8_t uart3_tx_buf[];

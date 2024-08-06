@@ -27,6 +27,7 @@
 
 uint32_t TIM1_CNT = 0; // 1ms period Timer1 Counter.
 uint32_t TIM2_CNT = 0; // 100ms period Timer2 Counter.
+uint32_t TIM8_CNT = 0; // ms period Timer8 Counter.
 
 uint8_t uart3_rx_buf[UART3_BUFFER_LENGTH] = {0};
 uint8_t uart3_tx_buf[UART3_BUFFER_LENGTH] = {0};
