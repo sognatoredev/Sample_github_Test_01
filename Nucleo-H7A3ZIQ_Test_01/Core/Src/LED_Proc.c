@@ -33,12 +33,12 @@ void LED_Process (void)
     // HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
     //HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
   }
-  else if (TIM2_CNT > 9) // 100ms period Timer2 Counter.
+  else if (TIM2_CNT > 9) // 100ms * 9 period Timer2 Counter.
   {
     TIM2_CNT = 0;
     HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
   }
-  else if (TIM8_CNT > 99999) // 10us period Timer8 Counter.
+  else if (TIM8_CNT > 99999) // 10us * 99999 period Timer8 Counter.
   {
     TIM8_CNT = 0;
     HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
