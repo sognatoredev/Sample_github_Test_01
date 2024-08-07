@@ -33,6 +33,7 @@ uint8_t uart3_rx_buf[UART3_BUFFER_LENGTH] = {0};
 uint8_t uart3_tx_buf[UART3_BUFFER_LENGTH] = {0};
 
 uint16_t userButton_cnt = 0;
+uint8_t userButton_state = 0x00;
 
 
 /*******************************************************************************

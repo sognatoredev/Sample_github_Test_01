@@ -281,6 +281,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   * @param  GPIO_Pin: Specifies the port pin connected to corresponding EXTI line.
   * @retval None
   */
+#if 0
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   userButton_cnt++;
@@ -291,5 +292,12 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
   }
 }
+#else
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  userButton_state = 0x01;
+  userButton_cnt++;
+}
+#endif
 
 /* USER CODE END 1 */

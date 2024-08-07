@@ -109,7 +109,7 @@ int main(void)
   while (1)
   {
     LED_Process();
-    //Button_Process();
+    Button_Process();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

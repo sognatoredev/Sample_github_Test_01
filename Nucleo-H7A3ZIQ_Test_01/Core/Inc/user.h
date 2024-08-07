@@ -18,6 +18,7 @@ extern uint8_t uart3_rx_buf[];
 extern uint8_t uart3_tx_buf[];
 
 extern uint16_t userButton_cnt;
+extern uint8_t userButton_state;
 
 #ifndef DEBUG
 #define DEBUG
