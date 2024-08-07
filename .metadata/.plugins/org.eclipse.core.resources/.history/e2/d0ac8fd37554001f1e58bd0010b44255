@@ -113,20 +113,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-     // LED 밝기 증가
-    for (uint16_t i = 0; i < htim12.Init.Period; i++)
+     // LED 밝기 증�?
+    for (uint8_t i = 0; i <= htim12.Init.Period; i++)
     {
-      htim12.Instance->CCR1 = i;
-      sprintf(uart3_tx_buf, " TIM12 CCR1 : %d\r\n", htim12.Instance->CCR1);
-      HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
-      HAL_Delay(20);  // 
+      htim12.Instance->CCR1 + i;
+      HAL_Delay(10);  // 
     }
 
     // LED 밝기 감소
-    for (uint16_t i = htim12.Instance->CCR1; htim12.Instance->CCR1 > 0; i--)
+    for (uint8_t i = htim12.Instance->CCR1; htim12.Instance->CCR1 > 0; i--)
     {
-      htim12.Instance->CCR1 = i;
-      HAL_Delay(20);  // 
+      htim12.Instance->CCR1 + i;
+      HAL_Delay(10);  // 
     }
 
     //LED_Process();

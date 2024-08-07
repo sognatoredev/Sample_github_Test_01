@@ -41,7 +41,7 @@ void LED_Process (void)
   else if (TIM8_CNT > 99999) // 10us * 99999 period Timer8 Counter.
   {
     TIM8_CNT = 0;
-    HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
+    //HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
   }
 }
 #endif
