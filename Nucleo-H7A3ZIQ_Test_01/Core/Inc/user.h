@@ -17,6 +17,8 @@ extern uint32_t TIM8_CNT;
 extern uint8_t uart3_rx_buf[];
 extern uint8_t uart3_tx_buf[];
 
+extern uint16_t userButton_cnt;
+
 #ifndef DEBUG
 #define DEBUG
 #endif

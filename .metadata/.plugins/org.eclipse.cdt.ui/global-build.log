@@ -4109,3 +4109,1378 @@ arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf
   29040	    124	   3004	  32168	   7da8	Nucleo-H7A3ZIQ_Test_01.elf
 Finished building: default.size.stdout
  
+10:54:03 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/button_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/button_proc.d" -MT"Core/Src/button_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/button_proc.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/led_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/led_proc.d" -MT"Core/Src/led_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/led_proc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc "../Core/Src/usb_otg.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usb_otg.d" -MT"Core/Src/usb_otg.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usb_otg.o"
+arm-none-eabi-gcc "../Core/Src/user.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/user.d" -MT"Core/Src/user.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/user.o"
+../Core/Src/button_proc.c: In function 'Button_Process':
+../Core/Src/user.c: In function 'BootMessagePrint':
+../Core/Src/button_proc.c:46:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   46 |         sprintf(uart3_tx_buf, "Button Toggle.\r\n");
+      |                 ^~~~~~~~~~~~
+      |                 |
+      |                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:48:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   48 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Inc/button_proc.h:15,
+                 from ../Core/Src/button_proc.c:14:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/stm32h7xx_it.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/stm32h7xx_it.c:286:7: error: 'GPIO_PIN' undeclared (first use in this function); did you mean 'GPIO_Pin'?
+  286 |   if (GPIO_PIN == B1_Pin)
+      |       ^~~~~~~~
+      |       GPIO_Pin
+../Core/Src/stm32h7xx_it.c:286:7: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/stm32h7xx_it.c:288:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  288 |     sprintf(uart3_tx_buf, " Button Interrupt callback.\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+../Core/Src/button_proc.c:47:62: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   47 |         HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                              ^~~~~~
+../Core/Src/button_proc.c:47:62: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/user.c:49:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   49 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/button_proc.c:15:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   14 | #include "button_proc.h"
+  +++ |+#include <string.h>
+   15 | 
+../Core/Src/user.c:49:58: warning: incompatible implicit declaration of built-in function 'strlen'
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/stm32h7xx_it.c:25:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:11:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   10 | #include "user.h"
+  +++ |+#include <string.h>
+   11 | 
+../Core/Src/button_proc.c:47:69: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   47 |         HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                     ^~~~~~~~~~~~
+      |                                                                     |
+      |                                                                     uint8_t * {aka unsigned char *}
+../Core/Src/button_proc.c:47:69: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:49:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   49 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/stm32h7xx_it.c:289:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  289 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/stm32h7xx_it.c:289:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/user.c:49:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/stm32h7xx_it.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include "user.h"
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/stm32h7xx_it.c:289:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  289 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/stm32h7xx_it.c:289:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:51:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   51 |     sprintf(uart3_tx_buf, " Project Name        : %s\r\n", PROJECT_NAME );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:52:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   52 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:52:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:54:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   54 |     sprintf(uart3_tx_buf, " - HW VERSION        : %s\r\n", STR_HW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:55:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   55 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:55:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:57:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   57 |     sprintf(uart3_tx_buf, " - FW VERSION        : %s\r\n", STR_FW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:58:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   58 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:58:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+make: *** [Core/Src/subdir.mk:55: Core/Src/stm32h7xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/user.c:60:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   60 |     sprintf(uart3_tx_buf, " - BUILD TIME        : %s, %s\r\n", __DATE__, __TIME__ );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:61:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   61 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:61:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:63:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   63 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:64:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   64 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:64:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c: In function 'GetClockSourcePrint':
+../Core/Src/user.c:70:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   70 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:71:58: warning: incompatible implicit declaration of built-in function 'strlen'
+   71 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:71:58: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/user.c:71:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   71 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:71:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:73:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   73 |     sprintf(uart3_tx_buf, " - SYSTEM Clock Frequency        : %lu MHz\r\n", (HAL_RCC_GetSysClockFreq() /1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:74:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   74 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:74:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:76:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   76 |     sprintf(uart3_tx_buf, " - HCLK Clock   Frequency        : %lu MHz\r\n", (HAL_RCC_GetHCLKFreq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:77:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   77 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:77:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:79:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   79 |     sprintf(uart3_tx_buf, " - PCLK1 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK1Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:80:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   80 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:80:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:82:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   82 |     sprintf(uart3_tx_buf, " - PCLK2 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK2Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:83:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   83 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:83:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:85:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   85 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:86:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   86 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:86:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+10:54:24 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/button_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/button_proc.d" -MT"Core/Src/button_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/button_proc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/stm32h7xx_it.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/stm32h7xx_it.c:286:7: error: 'GPIO_PIN' undeclared (first use in this function); did you mean 'GPIO_Pin'?
+  286 |   if (GPIO_PIN == B1_Pin)
+      |       ^~~~~~~~
+      |       GPIO_Pin
+../Core/Src/stm32h7xx_it.c:286:7: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/stm32h7xx_it.c:288:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  288 |     sprintf(uart3_tx_buf, " Button Interrupt callback.\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/stm32h7xx_it.c:25:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/stm32h7xx_it.c:289:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  289 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/stm32h7xx_it.c:289:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/stm32h7xx_it.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include "user.h"
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/stm32h7xx_it.c:289:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  289 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/stm32h7xx_it.c:289:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+make: *** [Core/Src/subdir.mk:55: Core/Src/stm32h7xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+10:54:44 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+../Core/Src/stm32h7xx_it.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/stm32h7xx_it.c:288:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  288 |     sprintf(uart3_tx_buf, " Button Interrupt callback.\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/stm32h7xx_it.c:25:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/stm32h7xx_it.c:289:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  289 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/stm32h7xx_it.c:289:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/stm32h7xx_it.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include "user.h"
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/stm32h7xx_it.c:289:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  289 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/stm32h7xx_it.c:289:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  29136	    124	   3004	  32264	   7e08	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+10:54:48 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29136	    124	   3004	  32264	   7e08	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+10:56:48 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  29136	    124	   3004	  32264	   7e08	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+10:56:53 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29136	    124	   3004	  32264	   7e08	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+11:01:01 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  29136	    124	   3004	  32264	   7e08	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+11:01:04 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29136	    124	   3004	  32264	   7e08	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+11:02:53 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/user.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/user.d" -MT"Core/Src/user.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/user.o"
+../Core/Src/stm32h7xx_it.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/stm32h7xx_it.c:286:3: error: 'userButton_cnt' undeclared (first use in this function)
+  286 |   userButton_cnt++;
+      |   ^~~~~~~~~~~~~~
+../Core/Src/stm32h7xx_it.c:286:3: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/stm32h7xx_it.c:290:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  290 |     sprintf(uart3_tx_buf, " Button Interrupt callback. Input Count : %d\r\n", userButton_cnt);
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/stm32h7xx_it.c:25:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/stm32h7xx_it.c:291:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  291 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/stm32h7xx_it.c:291:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/stm32h7xx_it.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include "user.h"
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/stm32h7xx_it.c:291:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  291 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/stm32h7xx_it.c:291:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+make: *** [Core/Src/subdir.mk:55: Core/Src/stm32h7xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/user.c: In function 'BootMessagePrint':
+../Core/Src/user.c:50:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   50 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:51:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   51 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:51:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/user.c:11:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   10 | #include "user.h"
+  +++ |+#include <string.h>
+   11 | 
+../Core/Src/user.c:51:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   51 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:51:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:53:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   53 |     sprintf(uart3_tx_buf, " Project Name        : %s\r\n", PROJECT_NAME );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:54:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   54 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:54:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:56:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   56 |     sprintf(uart3_tx_buf, " - HW VERSION        : %s\r\n", STR_HW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:57:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   57 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:57:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:59:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   59 |     sprintf(uart3_tx_buf, " - FW VERSION        : %s\r\n", STR_FW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:60:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   60 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:60:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:62:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   62 |     sprintf(uart3_tx_buf, " - BUILD TIME        : %s, %s\r\n", __DATE__, __TIME__ );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:63:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   63 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:63:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:65:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   65 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:66:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   66 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:66:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c: In function 'GetClockSourcePrint':
+../Core/Src/user.c:72:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   72 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:73:58: warning: incompatible implicit declaration of built-in function 'strlen'
+   73 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:73:58: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/user.c:73:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   73 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:73:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:75:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   75 |     sprintf(uart3_tx_buf, " - SYSTEM Clock Frequency        : %lu MHz\r\n", (HAL_RCC_GetSysClockFreq() /1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:76:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   76 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:76:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:78:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   78 |     sprintf(uart3_tx_buf, " - HCLK Clock   Frequency        : %lu MHz\r\n", (HAL_RCC_GetHCLKFreq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:79:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   79 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:79:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:81:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   81 |     sprintf(uart3_tx_buf, " - PCLK1 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK1Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:82:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   82 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:82:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:84:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   84 |     sprintf(uart3_tx_buf, " - PCLK2 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK2Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:85:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   85 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:85:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:87:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   87 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:88:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   88 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:88:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:03:19 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/button_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/button_proc.d" -MT"Core/Src/button_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/button_proc.o"
+arm-none-eabi-gcc "../Core/Src/led_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/led_proc.d" -MT"Core/Src/led_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/led_proc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/user.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/user.d" -MT"Core/Src/user.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/user.o"
+../Core/Src/stm32h7xx_it.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/stm32h7xx_it.c:290:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  290 |     sprintf(uart3_tx_buf, " Button Interrupt callback. Input Count : %d\r\n", userButton_cnt);
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/stm32h7xx_it.c:25:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/stm32h7xx_it.c:291:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  291 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/stm32h7xx_it.c:291:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/stm32h7xx_it.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include "user.h"
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/stm32h7xx_it.c:291:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  291 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/stm32h7xx_it.c:291:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c: In function 'BootMessagePrint':
+../Core/Src/user.c:50:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   50 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:51:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   51 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:51:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/user.c:11:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   10 | #include "user.h"
+  +++ |+#include <string.h>
+   11 | 
+../Core/Src/user.c:51:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   51 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:51:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:53:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   53 |     sprintf(uart3_tx_buf, " Project Name        : %s\r\n", PROJECT_NAME );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:54:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   54 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:54:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:56:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   56 |     sprintf(uart3_tx_buf, " - HW VERSION        : %s\r\n", STR_HW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:57:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   57 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:57:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:59:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   59 |     sprintf(uart3_tx_buf, " - FW VERSION        : %s\r\n", STR_FW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:60:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   60 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:60:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:62:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   62 |     sprintf(uart3_tx_buf, " - BUILD TIME        : %s, %s\r\n", __DATE__, __TIME__ );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:63:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   63 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:63:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:65:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   65 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:66:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   66 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:66:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c: In function 'GetClockSourcePrint':
+../Core/Src/user.c:72:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   72 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:73:58: warning: incompatible implicit declaration of built-in function 'strlen'
+   73 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:73:58: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/user.c:73:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   73 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:73:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:75:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   75 |     sprintf(uart3_tx_buf, " - SYSTEM Clock Frequency        : %lu MHz\r\n", (HAL_RCC_GetSysClockFreq() /1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:76:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   76 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:76:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:78:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   78 |     sprintf(uart3_tx_buf, " - HCLK Clock   Frequency        : %lu MHz\r\n", (HAL_RCC_GetHCLKFreq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:79:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   79 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:79:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:81:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   81 |     sprintf(uart3_tx_buf, " - PCLK1 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK1Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:82:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   82 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:82:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:84:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   84 |     sprintf(uart3_tx_buf, " - PCLK2 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK2Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:85:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   85 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:85:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:87:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   87 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:88:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   88 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:88:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  29176	    124	   3004	  32304	   7e30	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+11:03:21 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29176	    124	   3004	  32304	   7e30	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+11:04:04 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/user.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/user.d" -MT"Core/Src/user.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/user.o"
+../Core/Src/user.c:35:10: error: conflicting types for 'userButton_cnt'
+   35 | uint16_t userButton_cnt = 0;
+      |          ^~~~~~~~~~~~~~
+In file included from ../Core/Src/user.c:10:
+../Core/Inc/user.h:20:16: note: previous declaration of 'userButton_cnt' was here
+   20 | extern uint8_t userButton_cnt;
+      |                ^~~~~~~~~~~~~~
+../Core/Src/user.c: In function 'BootMessagePrint':
+../Core/Src/user.c:50:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   50 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:51:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   51 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:51:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/user.c:11:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   10 | #include "user.h"
+  +++ |+#include <string.h>
+   11 | 
+../Core/Src/user.c:51:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   51 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:51:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:53:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   53 |     sprintf(uart3_tx_buf, " Project Name        : %s\r\n", PROJECT_NAME );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:54:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   54 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:54:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:56:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   56 |     sprintf(uart3_tx_buf, " - HW VERSION        : %s\r\n", STR_HW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:57:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   57 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:57:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:59:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   59 |     sprintf(uart3_tx_buf, " - FW VERSION        : %s\r\n", STR_FW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:60:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   60 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:60:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:62:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   62 |     sprintf(uart3_tx_buf, " - BUILD TIME        : %s, %s\r\n", __DATE__, __TIME__ );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:63:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   63 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:63:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:65:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   65 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:66:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   66 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:66:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c: In function 'GetClockSourcePrint':
+../Core/Src/user.c:72:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   72 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:73:58: warning: incompatible implicit declaration of built-in function 'strlen'
+   73 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:73:58: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/user.c:73:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   73 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:73:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:75:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   75 |     sprintf(uart3_tx_buf, " - SYSTEM Clock Frequency        : %lu MHz\r\n", (HAL_RCC_GetSysClockFreq() /1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:76:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   76 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:76:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:78:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   78 |     sprintf(uart3_tx_buf, " - HCLK Clock   Frequency        : %lu MHz\r\n", (HAL_RCC_GetHCLKFreq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:79:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   79 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:79:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:81:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   81 |     sprintf(uart3_tx_buf, " - PCLK1 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK1Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:82:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   82 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:82:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:84:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   84 |     sprintf(uart3_tx_buf, " - PCLK2 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK2Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:85:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   85 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:85:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:87:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   87 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:88:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   88 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:88:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+make: *** [Core/Src/subdir.mk:55: Core/Src/user.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:04:20 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/button_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/button_proc.d" -MT"Core/Src/button_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/button_proc.o"
+arm-none-eabi-gcc "../Core/Src/led_proc.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/led_proc.d" -MT"Core/Src/led_proc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/led_proc.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+arm-none-eabi-gcc "../Core/Src/user.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32H7A3xxQ -c -I../Core/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc -I../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/user.d" -MT"Core/Src/user.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Core/Src/user.o"
+../Core/Src/stm32h7xx_it.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/stm32h7xx_it.c:290:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  290 |     sprintf(uart3_tx_buf, " Button Interrupt callback. Input Count : %d\r\n", userButton_cnt);
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/stm32h7xx_it.c:25:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/stm32h7xx_it.c:291:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  291 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/stm32h7xx_it.c:291:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/stm32h7xx_it.c:26:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   25 | #include "user.h"
+  +++ |+#include <string.h>
+   26 | /* USER CODE END Includes */
+../Core/Src/stm32h7xx_it.c:291:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  291 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/stm32h7xx_it.c:291:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c: In function 'BootMessagePrint':
+../Core/Src/user.c:50:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   50 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:51:58: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   51 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:51:58: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/user.c:11:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   10 | #include "user.h"
+  +++ |+#include <string.h>
+   11 | 
+../Core/Src/user.c:51:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   51 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:51:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:53:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   53 |     sprintf(uart3_tx_buf, " Project Name        : %s\r\n", PROJECT_NAME );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:54:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   54 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:54:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:56:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   56 |     sprintf(uart3_tx_buf, " - HW VERSION        : %s\r\n", STR_HW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:57:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   57 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:57:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:59:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   59 |     sprintf(uart3_tx_buf, " - FW VERSION        : %s\r\n", STR_FW_VER );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:60:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   60 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:60:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:62:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   62 |     sprintf(uart3_tx_buf, " - BUILD TIME        : %s, %s\r\n", __DATE__, __TIME__ );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:63:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   63 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:63:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:65:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   65 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:66:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   66 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:66:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c: In function 'GetClockSourcePrint':
+../Core/Src/user.c:72:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   72 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n");
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:73:58: warning: incompatible implicit declaration of built-in function 'strlen'
+   73 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+../Core/Src/user.c:73:58: note: include '<string.h>' or provide a declaration of 'strlen'
+../Core/Src/user.c:73:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   73 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:73:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:75:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   75 |     sprintf(uart3_tx_buf, " - SYSTEM Clock Frequency        : %lu MHz\r\n", (HAL_RCC_GetSysClockFreq() /1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:76:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   76 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:76:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:78:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   78 |     sprintf(uart3_tx_buf, " - HCLK Clock   Frequency        : %lu MHz\r\n", (HAL_RCC_GetHCLKFreq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:79:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   79 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:79:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:81:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   81 |     sprintf(uart3_tx_buf, " - PCLK1 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK1Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:82:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   82 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:82:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:84:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   84 |     sprintf(uart3_tx_buf, " - PCLK2 Clock  Frequency        : %lu MHz\r\n", (HAL_RCC_GetPCLK2Freq() / 1000000));
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:85:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   85 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:85:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/user.c:87:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   87 |     sprintf(uart3_tx_buf, "-------------------------------------------\r\n" );
+      |             ^~~~~~~~~~~~
+      |             |
+      |             uint8_t * {aka unsigned char *}
+In file included from ../Core/Inc/user.h:10,
+                 from ../Core/Src/user.c:10:
+c:\st\stm32cubeide_1.12.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/user.c:88:65: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+   88 |     HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t * {aka unsigned char *}
+../Core/Src/user.c:88:65: note: expected 'const char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+arm-none-eabi-gcc -o "Nucleo-H7A3ZIQ_Test_01.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\000. Work\001. FW\Git_Nucleo-H7A3ZIQ\Nucleo-H7A3ZIQ_Test_01\STM32H7A3ZITXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-H7A3ZIQ_Test_01.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-H7A3ZIQ_Test_01.elf
+ 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+arm-none-eabi-objdump -h -S  Nucleo-H7A3ZIQ_Test_01.elf  > "Nucleo-H7A3ZIQ_Test_01.list"
+   text	   data	    bss	    dec	    hex	filename
+  29176	    124	   3004	  32304	   7e30	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-H7A3ZIQ_Test_01.list
+ 
+11:04:22 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+make -j16 all 
+arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
+   text	   data	    bss	    dec	    hex	filename
+  29176	    124	   3004	  32304	   7e30	Nucleo-H7A3ZIQ_Test_01.elf
+Finished building: default.size.stdout
+ 

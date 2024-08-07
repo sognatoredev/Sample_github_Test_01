@@ -32,6 +32,8 @@ uint32_t TIM8_CNT = 0; // ms period Timer8 Counter.
 uint8_t uart3_rx_buf[UART3_BUFFER_LENGTH] = {0};
 uint8_t uart3_tx_buf[UART3_BUFFER_LENGTH] = {0};
 
+uint16_t userButton_cnt = 0;
+
 
 /*******************************************************************************
  * PRIVATE DECLARATIONS            Defined here, used elsewhere

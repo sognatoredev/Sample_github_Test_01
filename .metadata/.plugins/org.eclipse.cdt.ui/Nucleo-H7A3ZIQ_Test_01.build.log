@@ -1,10 +1,10 @@
-17:53:53 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
+11:04:22 **** Incremental Build of configuration Debug for project Nucleo-H7A3ZIQ_Test_01 ****
 make -j16 all 
 arm-none-eabi-size   Nucleo-H7A3ZIQ_Test_01.elf 
    text	   data	    bss	    dec	    hex	filename
-  29040	    124	   3004	  32168	   7da8	Nucleo-H7A3ZIQ_Test_01.elf
+  29176	    124	   3004	  32304	   7e30	Nucleo-H7A3ZIQ_Test_01.elf
 Finished building: default.size.stdout
  
 
-17:53:53 Build Finished. 0 errors, 0 warnings. (took 236ms)
+11:04:22 Build Finished. 0 errors, 0 warnings. (took 284ms)
 
