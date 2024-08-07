@@ -32,7 +32,7 @@ Core/Src/stm32h7xx_it.o: ../Core/Src/stm32h7xx_it.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../Core/Inc/stm32h7xx_it.h ../Core/Inc/user.h ../Core/Inc/main.h \
- ../Core/Inc/usart.h
+ ../Core/Inc/usart.h ../Core/Inc/tim.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -70,3 +70,4 @@ Core/Src/stm32h7xx_it.o: ../Core/Src/stm32h7xx_it.c ../Core/Inc/main.h \
 ../Core/Inc/user.h:
 ../Core/Inc/main.h:
 ../Core/Inc/usart.h:
+../Core/Inc/tim.h:

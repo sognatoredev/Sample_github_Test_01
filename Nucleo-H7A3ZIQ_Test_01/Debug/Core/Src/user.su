@@ -1,2 +1,2 @@
-../Core/Src/user.c:49:6:BootMessagePrint	8	static
-../Core/Src/user.c:71:6:GetClockSourcePrint	8	static
+../Core/Src/user.c:52:6:BootMessagePrint	8	static
+../Core/Src/user.c:74:6:GetClockSourcePrint	8	static

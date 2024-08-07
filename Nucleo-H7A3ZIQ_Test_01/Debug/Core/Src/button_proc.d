@@ -32,7 +32,7 @@ Core/Src/button_proc.o: ../Core/Src/button_proc.c \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Core/Inc/usart.h ../Core/Inc/user.h
+ ../Core/Inc/usart.h ../Core/Inc/user.h ../Core/Inc/tim.h
 ../Core/Inc/button_proc.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
@@ -69,3 +69,4 @@ Core/Src/button_proc.o: ../Core/Src/button_proc.c \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/user.h:
+../Core/Inc/tim.h:

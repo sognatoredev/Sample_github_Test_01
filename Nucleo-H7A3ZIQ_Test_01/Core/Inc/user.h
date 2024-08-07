@@ -9,8 +9,10 @@ extern "C" {
 #include "main.h"
 #include <stdio.h>
 #include "usart.h"
+#include "tim.h"
 
 extern uint32_t TIM1_CNT;
+extern uint32_t TIM1_DutyControl_cnt;
 extern uint32_t TIM2_CNT;
 extern uint32_t TIM8_CNT;
 
@@ -19,6 +21,8 @@ extern uint8_t uart3_tx_buf[];
 
 extern uint16_t userButton_cnt;
 extern uint8_t userButton_state;
+
+extern uint8_t dutycontrol_flag;
 
 #ifndef DEBUG
 #define DEBUG

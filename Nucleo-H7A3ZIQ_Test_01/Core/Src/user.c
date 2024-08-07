@@ -26,6 +26,7 @@
 #define UART3_BUFFER_LENGTH 1024
 
 uint32_t TIM1_CNT = 0; // 1ms period Timer1 Counter.
+uint32_t TIM1_DutyControl_cnt = 0; // 1ms period Timer1 Counter.
 uint32_t TIM2_CNT = 0; // 100ms period Timer2 Counter.
 uint32_t TIM8_CNT = 0; // ms period Timer8 Counter.
 
@@ -34,6 +35,8 @@ uint8_t uart3_tx_buf[UART3_BUFFER_LENGTH] = {0};
 
 uint16_t userButton_cnt = 0;
 uint8_t userButton_state = 0x00;
+
+uint8_t dutycontrol_flag = 0;
 
 
 /*******************************************************************************

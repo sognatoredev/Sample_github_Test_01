@@ -265,6 +265,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   if (htim->Instance == TIM1) // 1ms period Timer1 Counter.
   {
     TIM1_CNT++;
+    TIM1_DutyControl_cnt++;
   }
   else if (htim->Instance == TIM2) // 100ms period Timer1 Counter.
   {

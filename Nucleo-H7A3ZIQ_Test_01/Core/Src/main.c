@@ -114,23 +114,52 @@ int main(void)
   while (1)
   {
      // LED 밝기 증가
-    for (uint16_t i = 0; i < htim12.Init.Period; i++)
+    // for (uint16_t i = 0; i < htim12.Init.Period; i++)
+    // {
+    //   htim12.Instance->CCR1 = i;
+    //   sprintf(uart3_tx_buf, " TIM12 CCR1 : %d\r\n", htim12.Instance->CCR1);
+    //   HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+    //   //HAL_Delay(20);  // 
+    // }
+
+    if (dutycontrol_flag == 0x00)
     {
-      htim12.Instance->CCR1 = i;
-      sprintf(uart3_tx_buf, " TIM12 CCR1 : %d\r\n", htim12.Instance->CCR1);
-      HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
-      HAL_Delay(20);  // 
+      if (TIM1_DutyControl_cnt > 20)
+      {
+        TIM1_DutyControl_cnt = 0;
+
+        sprintf(uart3_tx_buf, " TIM12 CCR1 : %d\r\n", htim12.Instance->CCR1++);
+        HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      }
+      if (htim12.Instance->CCR1 >= htim12.Init.Period)
+      {
+        dutycontrol_flag = 0x01;
+      }
+    }
+    else if (dutycontrol_flag == 0x01)
+    {
+      if (TIM1_DutyControl_cnt > 20)
+      {
+        TIM1_DutyControl_cnt = 0;
+
+        sprintf(uart3_tx_buf, " TIM12 CCR1 : %d\r\n", htim12.Instance->CCR1--);
+        HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
+      }
+      if (htim12.Instance->CCR1 == 0)
+      {
+        dutycontrol_flag = 0x00;
+      }
     }
 
-    // LED 밝기 감소
-    for (uint16_t i = htim12.Instance->CCR1; htim12.Instance->CCR1 > 0; i--)
-    {
-      htim12.Instance->CCR1 = i;
-      HAL_Delay(20);  // 
-    }
+    // // LED 밝기 감소
+    // for (uint16_t i = htim12.Instance->CCR1; htim12.Instance->CCR1 > 0; i--)
+    // {
+    //   htim12.Instance->CCR1 = i;
+    //   //HAL_Delay(20);  // 
+    // }
 
-    //LED_Process();
-    //Button_Process();
+    LED_Process();
+    Button_Process();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

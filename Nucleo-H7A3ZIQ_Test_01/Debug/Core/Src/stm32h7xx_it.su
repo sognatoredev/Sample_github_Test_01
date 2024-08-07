@@ -12,4 +12,4 @@
 ../Core/Src/stm32h7xx_it.c:237:6:EXTI15_10_IRQHandler	8	static
 ../Core/Src/stm32h7xx_it.c:251:6:TIM8_UP_TIM13_IRQHandler	8	static
 ../Core/Src/stm32h7xx_it.c:263:6:HAL_TIM_PeriodElapsedCallback	16	static
-../Core/Src/stm32h7xx_it.c:296:6:HAL_GPIO_EXTI_Callback	16	static
+../Core/Src/stm32h7xx_it.c:297:6:HAL_GPIO_EXTI_Callback	16	static
