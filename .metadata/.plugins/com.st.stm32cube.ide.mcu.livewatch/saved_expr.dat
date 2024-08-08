@@ -1,3 +1,4 @@
 TIM1_CNT
 TIM2_CNT
 TIM8_CNT
+htim12.Instance->CCR1

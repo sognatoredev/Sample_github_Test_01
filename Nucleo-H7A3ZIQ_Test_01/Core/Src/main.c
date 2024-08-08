@@ -104,8 +104,8 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_Base_Start_IT(&htim8);
 
-  HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
-
+  //HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start_IT(&htim12, TIM_CHANNEL_1);
  
   /* USER CODE END 2 */
 
@@ -122,34 +122,7 @@ int main(void)
     //   //HAL_Delay(20);  // 
     // }
 
-    if (dutycontrol_flag == 0x00)
-    {
-      if (TIM1_DutyControl_cnt > 20)
-      {
-        TIM1_DutyControl_cnt = 0;
 
-        sprintf(uart3_tx_buf, " TIM12 CCR1 : %d\r\n", htim12.Instance->CCR1++);
-        HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
-      }
-      if (htim12.Instance->CCR1 >= htim12.Init.Period)
-      {
-        dutycontrol_flag = 0x01;
-      }
-    }
-    else if (dutycontrol_flag == 0x01)
-    {
-      if (TIM1_DutyControl_cnt > 20)
-      {
-        TIM1_DutyControl_cnt = 0;
-
-        sprintf(uart3_tx_buf, " TIM12 CCR1 : %d\r\n", htim12.Instance->CCR1--);
-        HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
-      }
-      if (htim12.Instance->CCR1 == 0)
-      {
-        dutycontrol_flag = 0x00;
-      }
-    }
 
     // // LED 밝기 감소
     // for (uint16_t i = htim12.Instance->CCR1; htim12.Instance->CCR1 > 0; i--)
