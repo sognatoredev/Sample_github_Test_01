@@ -57,7 +57,7 @@ static void LED_Dimming (void)
             // HAL_UART_Transmit(&huart3, (uint8_t *) uart3_tx_buf, strlen(uart3_tx_buf), HAL_MAX_DELAY);
         }
     }
-} 
+}
 
 void LED_Process (void)
 {

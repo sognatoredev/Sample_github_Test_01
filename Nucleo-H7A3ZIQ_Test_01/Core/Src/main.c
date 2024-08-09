@@ -97,15 +97,15 @@ int main(void)
   MX_TIM8_Init();
   MX_TIM12_Init();
   /* USER CODE BEGIN 2 */
-  BootMessagePrint();
-  GetClockSourcePrint();
+  // BootMessagePrint();
+  // GetClockSourcePrint();
 
-  HAL_TIM_Base_Start_IT(&htim1);
-  HAL_TIM_Base_Start_IT(&htim2);
-  HAL_TIM_Base_Start_IT(&htim8);
+  // HAL_TIM_Base_Start_IT(&htim1);
+  // HAL_TIM_Base_Start_IT(&htim2);
+  // HAL_TIM_Base_Start_IT(&htim8);
 
-  //HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start_IT(&htim12, TIM_CHANNEL_1);
+  // //HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
+  // HAL_TIM_PWM_Start_IT(&htim12, TIM_CHANNEL_1);
  
   /* USER CODE END 2 */
 
@@ -113,7 +113,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-     // LED 밝기 증가
+    // LED 밝기 증�?
     // for (uint16_t i = 0; i < htim12.Init.Period; i++)
     // {
     //   htim12.Instance->CCR1 = i;
