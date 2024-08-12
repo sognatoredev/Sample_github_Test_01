@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "tim.h"
 #include "usart.h"
 #include "usb_otg.h"
@@ -90,11 +91,12 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART3_UART_Init();
+  MX_DMA_Init();
   MX_USB_OTG_HS_USB_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM8_Init();
+  MX_USART3_UART_Init();
   MX_TIM12_Init();
   /* USER CODE BEGIN 2 */
   BootMessagePrint();
@@ -106,7 +108,9 @@ int main(void)
 
   HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start_IT(&htim12, TIM_CHANNEL_1);
- 
+
+  HAL_UART_Receive_DMA(&huart3, &uart3_rx_buf, 1);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

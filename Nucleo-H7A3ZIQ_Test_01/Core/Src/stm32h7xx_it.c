@@ -60,6 +60,7 @@ extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim8;
 extern TIM_HandleTypeDef htim12;
+extern DMA_HandleTypeDef hdma_usart3_rx;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -205,6 +206,20 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles DMA1 stream0 global interrupt.
+  */
+void DMA1_Stream0_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
+
+  /* USER CODE END DMA1_Stream0_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart3_rx);
+  /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
+
+  /* USER CODE END DMA1_Stream0_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 update interrupt.
   */
 void TIM1_UP_IRQHandler(void)
@@ -278,19 +293,19 @@ void TIM8_UP_TIM13_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-  if (htim->Instance == TIM1) // 1ms period Timer1 Counter.
-  {
-    TIM1_CNT++;
-    TIM1_DutyControl_cnt++;
-  }
-  else if (htim->Instance == TIM2) // 100ms period Timer1 Counter.
-  {
-    TIM2_CNT++;
-  }
-  else if (htim->Instance == TIM8) // 10us period Timer8 Counter.
-  {
-    TIM8_CNT++;
-  }
+    if (htim->Instance == TIM1) // 1ms period Timer1 Counter.
+    {
+        TIM1_CNT++;
+        TIM1_DutyControl_cnt++;
+    }
+    else if (htim->Instance == TIM2) // 100ms period Timer1 Counter.
+    {
+        TIM2_CNT++;
+    }
+    else if (htim->Instance == TIM8) // 10us period Timer8 Counter.
+    {
+        TIM8_CNT++;
+    }
 }
 
 /**
@@ -312,9 +327,37 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 #else
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  userButton_state = 0x01;
-  userButton_cnt++;
+    userButton_state = 0x01;
+    userButton_cnt++;
 }
 #endif
 
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+    if (huart->Instance == USART3)
+    {
+        /* Process the received data */
+        /* Size indicates the number of bytes received */
+
+        /* Restart UART receive */
+        HAL_UART_Receive_DMA(&huart3, &uart3_rx_buf, 1);
+    }
+}
+
+/**
+  * @brief  Rx Transfer completed callback.
+  * @param  huart UART handle.
+  * @retval None
+  */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+    if (huart->Instance == USART3)
+    {
+        /* Process the received data */
+        /* Size indicates the number of bytes received */
+
+        /* Restart UART receive */
+        HAL_UART_Receive_DMA(&huart3, (uint8_t *) &uart3_rx_buf[++uart3_rx_index], 1);
+    }
+}
 /* USER CODE END 1 */
