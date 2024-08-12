@@ -1,1 +1,18 @@
+### Eclipse ###
+
 .metadata/
+/.metadata
+.metadadta
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+
+Nucleo-H7A3ZIQ_Test_01.zip
