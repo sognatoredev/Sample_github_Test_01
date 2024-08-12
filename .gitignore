@@ -2,7 +2,7 @@
 
 .metadata/
 /.metadata
-.metadadta
+.metadata
 bin/
 tmp/
 *.tmp
