@@ -13,6 +13,9 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.classpath
+.project
+
 
 
 Nucleo-H7A3ZIQ_Test_01.zip
