@@ -1,2 +1,2 @@
-led_proc.c:26:13:LED_Dimming	7
-led_proc.c:62:6:LED_Process	4
+LED_Proc.c:26:13:LED_Dimming	7
+LED_Proc.c:62:6:LED_Process	4

@@ -313,7 +313,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   userButton_state = 0x01;
-  // userButton_cnt++;
+  userButton_cnt++;
 }
 #endif
 
