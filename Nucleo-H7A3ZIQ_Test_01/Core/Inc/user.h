@@ -8,6 +8,7 @@ extern "C" {
 
 #include "main.h"
 #include <stdio.h>
+#include <string.h>
 #include "usart.h"
 #include "tim.h"
 
@@ -31,6 +32,8 @@ extern uint16_t userButton_cnt;
 extern uint8_t userButton_state;
 
 extern uint8_t dutycontrol_flag;
+
+#define UART3_CMP_SIZE           (uart3_rx_index - 2)
 
 #ifndef DEBUG
 #define DEBUG

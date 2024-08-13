@@ -9,6 +9,7 @@
 "./Core/Src/sysmem.o"
 "./Core/Src/system_stm32h7xx.o"
 "./Core/Src/tim.o"
+"./Core/Src/uart_proc.o"
 "./Core/Src/usart.o"
 "./Core/Src/usb_otg.o"
 "./Core/Src/user.o"

@@ -137,6 +137,7 @@ int main(void)
 
     LED_Process();
     Button_Process();
+    Uart3_Process();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
